@@ -1,0 +1,137 @@
+---
+import '../styles/global.css';
+import ChatIntake from '../components/ChatIntake.astro';
+import { navLinks } from '../data/site';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = 'Web development, design, branding, and creative production from Bee Balm Productions.' } = Astro.props;
+const currentPath = Astro.url.pathname;
+const isHome = currentPath === '/';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/png" href="/images/legacy/BBPLogoIcon.png" />
+    <title>{title}</title>
+  </head>
+  <body class={isHome ? 'home-loading' : ''}>
+    {isHome && (
+      <div class="home-loader" data-home-loader>
+        <div class="loader-core">
+          <img src="/images/legacy/BBPLogoIcon.png" alt="" />
+          <p>Bee Balm Productions</p>
+          <span>Building your hive...</span>
+          <div class="loader-dots" aria-hidden="true">
+            <i></i><i></i><i></i>
+          </div>
+        </div>
+      </div>
+    )}
+
+    <div class="site-shell">
+      <header class="site-header">
+        <a class="logo" href="/">
+          <img src="/images/legacy/BBPLogoIcon.png" alt="Bee Balm Productions logo" />
+          <span>Bee Balm Productions</span>
+        </a>
+        <button class="menu-toggle" type="button" aria-label="Open site menu" data-menu-toggle>Menu</button>
+        <nav class="site-nav" data-site-nav>
+          {navLinks.map((link) => (
+            <a class={currentPath === link.href ? 'active' : ''} href={link.href}>
+              {link.label}
+            </a>
+          ))}
+        </nav>
+      </header>
+
+      <main>
+        <slot />
+      </main>
+
+      <footer class="site-footer">
+        <p>Bee Balm Productions. Websites for the Busy Bee.</p>
+        <div class="footer-links">
+          <a href="https://www.facebook.com/beebalmproductions/" target="_blank" rel="noreferrer">Facebook</a>
+          <a href="https://www.linkedin.com/in/joshua-nelson-253b378/" target="_blank" rel="noreferrer">LinkedIn</a>
+        </div>
+      </footer>
+    </div>
+
+    <ChatIntake />
+
+    <script>
+      const menuButton = document.querySelector('[data-menu-toggle]');
+      const nav = document.querySelector('[data-site-nav]');
+      menuButton?.addEventListener('click', () => {
+        nav?.classList.toggle('open');
+      });
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('in-view');
+            }
+          }
+        },
+        { threshold: 0.16 },
+      );
+
+      document.querySelectorAll('.reveal').forEach((item) => observer.observe(item));
+
+      document.querySelectorAll('[data-carousel]').forEach((carousel) => {
+        const track = carousel.querySelector('[data-carousel-track]');
+        const slides = carousel.querySelectorAll('[data-carousel-slide]');
+        const prev = carousel.querySelector('[data-carousel-prev]');
+        const next = carousel.querySelector('[data-carousel-next]');
+
+        if (!track || slides.length < 2 || !prev || !next) return;
+
+        let index = 0;
+        const total = slides.length;
+        const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        const render = () => {
+          track.style.transform = `translateX(-${index * 100}%)`;
+        };
+
+        prev.addEventListener('click', () => {
+          index = (index - 1 + total) % total;
+          render();
+        });
+
+        next.addEventListener('click', () => {
+          index = (index + 1) % total;
+          render();
+        });
+
+        if (!prefersReduced) {
+          setInterval(() => {
+            index = (index + 1) % total;
+            render();
+          }, 5500);
+        }
+      });
+
+      const loader = document.querySelector('[data-home-loader]');
+      if (loader) {
+        const finishLoader = () => {
+          loader.classList.add('hide');
+          document.body.classList.remove('home-loading');
+          setTimeout(() => loader.remove(), 560);
+        };
+
+        setTimeout(finishLoader, 1100);
+        window.addEventListener('load', finishLoader, { once: true });
+      }
+    </script>
+  </body>
+</html>

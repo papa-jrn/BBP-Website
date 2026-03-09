@@ -1,0 +1,122 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Contact | Bee Balm Productions" description="Talk with Bee Balm Productions about your web design or web app project.">
+  <section class="container curve-band">
+    <div class="section-head reveal">
+      <h2>Let's build your next project</h2>
+      <p>
+        Tell us what you are building and where you are stuck. We can help scope, design, and launch with a clear plan.
+      </p>
+    </div>
+
+    <div class="contact-grid">
+      <article class="contact-card reveal">
+        <h3>Contact details</h3>
+        <ul class="contact-list">
+          <li><strong>Phone:</strong> <a href="tel:+16035580315">603-558-0315</a></li>
+          <li><strong>Email:</strong> <a href="mailto:info@beebalmproductions.com">info@beebalmproductions.com</a></li>
+          <li><strong>Location:</strong> Claremont, New Hampshire</li>
+          <li><strong>Region:</strong> New England and remote nationwide</li>
+        </ul>
+        <div class="hero-actions">
+          <a class="button primary" href="mailto:info@beebalmproductions.com">Send Email</a>
+          <a class="button ghost" href="https://www.facebook.com/beebalmproductions/" target="_blank" rel="noreferrer">Facebook</a>
+        </div>
+      </article>
+
+      <article class="contact-card reveal">
+        <h3>Project inquiry form</h3>
+        <form class="contact-form" action="https://formsubmit.co/info@beebalmproductions.com" method="post">
+          <input type="hidden" name="_subject" value="Bee Balm Website Inquiry" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
+
+          <div class="form-row">
+            <label>
+              Name
+              <input type="text" name="name" required />
+            </label>
+            <label>
+              Email
+              <input type="email" name="email" required />
+            </label>
+          </div>
+
+          <div class="form-row">
+            <label>
+              Organization
+              <input type="text" name="organization" />
+            </label>
+            <label>
+              Project type
+              <select name="project_type">
+                <option>Marketing website</option>
+                <option>Web application</option>
+                <option>Website redesign</option>
+                <option>Brand + website package</option>
+              </select>
+            </label>
+          </div>
+
+          <label>
+            Project goals
+            <textarea name="project_goals" rows="5" required></textarea>
+          </label>
+
+          <div class="form-row">
+            <label>
+              Budget range
+              <select name="budget">
+                <option>$2K-$5K</option>
+                <option>$5K-$10K</option>
+                <option>$10K-$25K</option>
+                <option>$25K-$50K</option>
+                <option>$50K+</option>
+              </select>
+            </label>
+            <label>
+              Desired timeline
+              <input type="text" name="timeline" placeholder="Example: launch in 8 weeks" />
+            </label>
+          </div>
+
+          <button class="button primary" type="submit">Submit Inquiry</button>
+          <p class="form-note">This now submits directly to your inbox using a hosted form endpoint.</p>
+        </form>
+      </article>
+    </div>
+  </section>
+
+  <section class="container curve-band">
+    <div class="two-col">
+      <article class="contact-card reveal">
+        <img class="contact-photo" src="/images/legacy/Bright-Red-bee-balm.jpg" alt="Bee balm flower" />
+        <p>
+          Prefer a quick intro call first? Share your goals and timeline and we will recommend a realistic next step.
+        </p>
+      </article>
+      <article class="contact-card reveal">
+        <h3>What happens after you contact us</h3>
+        <p>
+          We typically reply within one business day. Then we schedule a short intro call, confirm scope, and send a tailored plan.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <section class="container curve-band">
+    <div class="section-head reveal">
+      <h2>Kickoff infographic</h2>
+      <p>What happens right after you reach out.</p>
+    </div>
+    <div class="infographic-flow">
+      <article class="info-node reveal"><h3>Intro Call</h3><p>30-minute fit and goals conversation.</p></article>
+      <article class="info-node reveal"><h3>Proposal</h3><p>Scope, timeline, and recommendations.</p></article>
+      <article class="info-node reveal"><h3>Project Start</h3><p>Kickoff workshop and first sprint begins.</p></article>
+      <article class="info-node reveal"><h3>Weekly Rhythm</h3><p>Consistent updates and visible progress.</p></article>
+    </div>
+  </section>
+</BaseLayout>

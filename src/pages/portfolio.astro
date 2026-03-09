@@ -1,0 +1,73 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { externalSites, portfolioItems } from '../data/site';
+---
+
+<BaseLayout title="Portfolio | Bee Balm Productions" description="Selected web, campaign, and visual projects from Bee Balm Productions.">
+  <section class="container hero reveal">
+    <div class="hero-grid">
+      <div>
+        <h1>Selected project work</h1>
+        <p>
+          A mix of healthcare, education, campaign, and product-focused websites built to be clear, useful, and engaging.
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="/contact">Discuss Your Project</a>
+        </div>
+      </div>
+      <div class="hero-image-wrap">
+        <img class="hero-image" src="/images/legacy/DSC_0325.jpg" alt="Forest detail" />
+      </div>
+    </div>
+  </section>
+
+  <section class="container curve-band">
+    <div class="section-head reveal">
+      <h2>Impact snapshot infographic</h2>
+      <p>Recent work patterns across industries and product goals.</p>
+    </div>
+    <div class="stats-grid">
+      <article class="stat-card reveal"><strong>18+</strong><span>Featured websites and apps</span></article>
+      <article class="stat-card reveal"><strong>7+</strong><span>Focus industries represented</span></article>
+      <article class="stat-card reveal"><strong>End-to-End</strong><span>Strategy through launch support</span></article>
+    </div>
+  </section>
+
+  <section class="container curve-band">
+    <div class="section-head reveal">
+      <h2>Live Websites</h2>
+      <p>Recent and active sites to explore.</p>
+    </div>
+    <div class="feature-grid">
+      {externalSites.map((site) => (
+        <article class="pod-card reveal ext-site-card">
+          <img class="ext-site-image" src={site.image} alt={`${site.title} website graphic`} loading="lazy" />
+          <h3>{site.title}</h3>
+          <p>{site.note}</p>
+          <a class="site-link" href={site.url} target="_blank" rel="noreferrer">Visit Site</a>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="container curve-band">
+    <div class="section-head reveal">
+      <h2>Web Portfolio</h2>
+      <p>
+        These projects were built from 2012 through 2020. Many of these original websites are no longer live, so this section
+        preserves the work as screenshots.
+      </p>
+    </div>
+    <div class="card-grid">
+      {portfolioItems.map((item) => (
+        <article class="work-card reveal">
+          <img src={item.image} alt={item.title} loading="lazy" />
+          <div class="work-meta">
+            <h3>{item.title}</h3>
+            <span class="tag">{item.tag}</span>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

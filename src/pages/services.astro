@@ -1,0 +1,79 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { processSteps, serviceItems } from '../data/site';
+---
+
+<BaseLayout title="Services | Bee Balm Productions" description="Playful, strategic web design and web app development services with a clear step-by-step process.">
+  <section class="container hero reveal">
+    <div class="hero-grid">
+      <div>
+        <h1>Services built for momentum.</h1>
+        <p>
+          We mix strategy, design, development, and launch support into one collaborative workflow so your project keeps moving.
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="/contact">Book an Intro Call</a>
+          <a class="button ghost" href="#process">Jump to Process</a>
+        </div>
+      </div>
+      <div class="hero-image-wrap">
+        <img class="hero-image" src="/images/legacy/DSC_1173.jpg" alt="Mountain horizon" />
+        <div class="sticker b">Infographic-Led UX</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container curve-band">
+    <div class="section-head reveal">
+      <h2>Core service tracks</h2>
+      <p>Choose a focused engagement or combine tracks into a complete web app build.</p>
+    </div>
+    <div class="card-grid">
+      {serviceItems.map((item) => (
+        <article class="service-card reveal">
+          <div class="service-icon">{item.icon}</div>
+          <h3>{item.title}</h3>
+          <p>{item.body}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="container curve-band" id="process">
+    <div class="section-head reveal">
+      <h2>Our step-by-step web app process</h2>
+      <p>
+        This roadmap uses a playful infographic style so every phase is easy to understand, from discovery through post-launch growth.
+      </p>
+    </div>
+
+    <div class="process-shell reveal">
+      <div class="process-flow">
+        {processSteps.map((step, index) => (
+          <article class="process-step reveal" data-step={index + 1}>
+            <h3>{step.title}</h3>
+            <p>{step.detail}</p>
+            <span class="process-chip">{step.chip}</span>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="container curve-band">
+    <div class="section-head reveal">
+      <h2>Engagement infographic</h2>
+      <p>Two simple ways to work with us depending on your timeline and internal team.</p>
+    </div>
+    <div class="feature-grid">
+      <article class="pod-card reveal">
+        <h3>Sprint Mode</h3>
+        <p>Fast 2-4 week focused build cycle for urgent initiatives.</p>
+      </article>
+      <article class="pod-card reveal">
+        <h3>Studio Partner</h3>
+        <p>Ongoing monthly design + development support for scaling teams.</p>
+      </article>
+    </div>
+  </section>
+</BaseLayout>

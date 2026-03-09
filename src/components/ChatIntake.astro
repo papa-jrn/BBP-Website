@@ -1,0 +1,92 @@
+---
+---
+
+<div class="chat-intake" data-chat-intake>
+  <button type="button" class="chat-toggle" data-chat-toggle aria-label="Open chat intake">Chat With Bee Balm</button>
+  <section class="chat-panel" data-chat-panel hidden>
+    <h3>Quick Project Intake</h3>
+    <p>Share a few details and we will follow up.</p>
+
+    <form class="chat-form" data-chat-form>
+      <label>
+        Name
+        <input type="text" name="name" required />
+      </label>
+      <label>
+        Email
+        <input type="email" name="email" required />
+      </label>
+      <label>
+        Project type
+        <select name="project_type">
+          <option>Marketing website</option>
+          <option>Web application</option>
+          <option>Website redesign</option>
+          <option>Brand + website package</option>
+        </select>
+      </label>
+      <label>
+        Budget range
+        <select name="budget">
+          <option>$2K-$5K</option>
+          <option>$5K-$10K</option>
+          <option>$10K-$25K</option>
+          <option>$25K-$50K</option>
+          <option>$50K+</option>
+        </select>
+      </label>
+      <label>
+        Project notes
+        <textarea name="project_goals" rows="3" required></textarea>
+      </label>
+
+      <button type="submit" class="button primary">Send Intake</button>
+      <p class="chat-status" data-chat-status></p>
+    </form>
+  </section>
+</div>
+
+<script>
+  const intakeRoot = document.querySelector('[data-chat-intake]');
+  if (intakeRoot) {
+    const toggle = intakeRoot.querySelector('[data-chat-toggle]');
+    const panel = intakeRoot.querySelector('[data-chat-panel]');
+    const form = intakeRoot.querySelector('[data-chat-form]');
+    const status = intakeRoot.querySelector('[data-chat-status]');
+
+    toggle?.addEventListener('click', () => {
+      if (panel?.hasAttribute('hidden')) {
+        panel.removeAttribute('hidden');
+      } else {
+        panel?.setAttribute('hidden', 'true');
+      }
+    });
+
+    form?.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const formData = new FormData(form);
+      formData.append('_subject', 'Bee Balm Chat Intake');
+
+      try {
+        const res = await fetch('https://formsubmit.co/ajax/info@beebalmproductions.com', {
+          method: 'POST',
+          body: formData,
+          headers: { Accept: 'application/json' },
+        });
+
+        if (!res.ok) {
+          throw new Error('Submit failed');
+        }
+
+        form.reset();
+        if (status) {
+          status.textContent = 'Thanks. We received your intake and will follow up shortly.';
+        }
+      } catch (error) {
+        if (status) {
+          status.textContent = 'Submission failed. Please use the contact form for now.';
+        }
+      }
+    });
+  }
+</script>

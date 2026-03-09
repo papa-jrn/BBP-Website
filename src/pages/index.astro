@@ -1,17 +1,108 @@
 ---
-
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TestimonialCarousel from '../components/TestimonialCarousel.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout
+  title="Bee Balm Productions | Playful Web App Studio"
+  description="Bee Balm Productions designs and builds playful, strategic websites and web apps with clear process and modern motion."
+>
+  <section class="container hero reveal">
+    <div class="hero-grid">
+      <div>
+        <h1>Playful websites and web apps that work hard.</h1>
+        <p>
+          Bee Balm Productions helps teams turn ideas into beautiful, practical digital products. We combine strategy,
+          design, and development into one clear process.
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="/services">See Our Process</a>
+          <a class="button ghost" href="/contact">Start a Project</a>
+        </div>
+      </div>
+
+      <div class="hero-image-wrap">
+        <img class="hero-image" src="/images/legacy/BeeOnThistle.jpg" alt="Bee on flower" />
+        <div class="sticker a">UX + Strategy</div>
+        <div class="sticker b">Build + Launch</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container curve-band">
+    <div class="section-head reveal">
+      <h2>Built like a studio, delivered like a partner.</h2>
+      <p>
+        Inspired by collaborative design workshops, our process keeps momentum high and decision-making simple.
+      </p>
+    </div>
+    <div class="stats-grid">
+      <article class="stat-card reveal">
+        <strong>20+ yrs</strong>
+        <span>Digital product experience</span>
+      </article>
+      <article class="stat-card reveal">
+        <strong>100+</strong>
+        <span>Projects supported and launched</span>
+      </article>
+      <article class="stat-card reveal">
+        <strong>1 Team</strong>
+        <span>Strategy, design, and dev together</span>
+      </article>
+    </div>
+  </section>
+
+  <section class="container curve-band">
+    <div class="section-head reveal">
+      <h2>Project infographic</h2>
+      <p>A simple map of how ideas become launch-ready products at Bee Balm.</p>
+    </div>
+    <div class="infographic-flow">
+      <article class="info-node reveal">
+        <h3>01 Discover</h3>
+        <p>Goals, users, and constraints.</p>
+      </article>
+      <article class="info-node reveal">
+        <h3>02 Design</h3>
+        <p>Wireframes, visuals, and interactions.</p>
+      </article>
+      <article class="info-node reveal">
+        <h3>03 Build</h3>
+        <p>Front-end, integrations, and QA.</p>
+      </article>
+      <article class="info-node reveal">
+        <h3>04 Launch</h3>
+        <p>Deploy, monitor, and optimize.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="container curve-band">
+    <div class="section-head reveal">
+      <h2>How we help</h2>
+      <p>
+        Whether you need a marketing site, product dashboard, or full web app, we guide the project from concept to launch.
+      </p>
+    </div>
+    <div class="feature-grid">
+      <article class="value-card reveal">
+        <h3>Clear Discovery</h3>
+        <p>We align goals, audience, features, and timeline before design starts.</p>
+      </article>
+      <article class="value-card reveal">
+        <h3>Design With Personality</h3>
+        <p>Friendly visuals, playful curves, and infographic storytelling built around your brand.</p>
+      </article>
+      <article class="value-card reveal">
+        <h3>Confident Launch</h3>
+        <p>Performance, mobile polish, and analytics are baked in from day one.</p>
+      </article>
+    </div>
+    <div class="hero-actions">
+      <a class="button primary" href="/portfolio">View Portfolio</a>
+      <a class="button ghost" href="/about">About Bee Balm</a>
+    </div>
+  </section>
+
+  <TestimonialCarousel />
+</BaseLayout>

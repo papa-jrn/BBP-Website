@@ -1,0 +1,51 @@
+---
+const testimonials = [
+  {
+    name: 'Josh Page',
+    role: 'Senior Industrial Design Engineer / Simbex-TREAT',
+    quote:
+      'Josh Nelson is a great listener and communicator with the empathy and expertise to translate client needs into actionable development pathways.',
+  },
+  {
+    name: 'Susan Wills',
+    role: 'Administrator / C. Everett Koop Institute',
+    quote:
+      'Joshua provided excellent leadership through a complex process and stayed incredibly responsive over the years as needs evolved.',
+  },
+  {
+    name: 'Mark Noel',
+    role: 'Managing Director / Catalyst Repository Systems',
+    quote:
+      'He reliably brings order from chaos and creates calm focus in stressful situations. A true collaborator and problem-solver.',
+  },
+  {
+    name: 'Christof Daetwyler',
+    role: 'Professor / Drexel University',
+    quote:
+      'His organization skills, team-building ability, and creativity in finding solutions are excellent. He is my choice for complex digital work.',
+  },
+];
+---
+
+<section class="container curve-band" aria-label="Client testimonials">
+  <div class="section-head reveal">
+    <h2>What clients say</h2>
+    <p>Trusted partnerships, practical delivery, and a process people enjoy.</p>
+  </div>
+
+  <div class="testimonial-carousel reveal" data-carousel>
+    <div class="carousel-track" data-carousel-track>
+      {testimonials.map((item) => (
+        <article class="testimonial-card" data-carousel-slide>
+          <p class="quote">"{item.quote}"</p>
+          <h3>{item.name}</h3>
+          <span>{item.role}</span>
+        </article>
+      ))}
+    </div>
+    <div class="carousel-controls">
+      <button type="button" class="carousel-btn" data-carousel-prev aria-label="Previous testimonial">Prev</button>
+      <button type="button" class="carousel-btn" data-carousel-next aria-label="Next testimonial">Next</button>
+    </div>
+  </div>
+</section>
