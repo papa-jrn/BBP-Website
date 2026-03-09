@@ -11,6 +11,9 @@ interface Props {
 const { title, description = 'Web development, design, branding, and creative production from Bee Balm Productions.' } = Astro.props;
 const currentPath = Astro.url.pathname;
 const isHome = currentPath === '/';
+const siteUrl = 'https://beebalmproductions.com';
+const canonicalUrl = new URL(currentPath, siteUrl).href;
+const socialImage = `${siteUrl}/images/legacy/BBPLogoIcon.png`;
 ---
 
 <!doctype html>
@@ -19,6 +22,21 @@ const isHome = currentPath === '/';
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta name="robots" content="index,follow" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Bee Balm Productions" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={socialImage} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImage} />
+
     <link rel="icon" type="image/png" href="/images/legacy/BBPLogoIcon.png" />
     <title>{title}</title>
   </head>
