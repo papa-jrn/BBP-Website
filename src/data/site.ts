@@ -138,6 +138,18 @@ export const externalSites = [
     note: 'Film production website',
     image: '/images/live/fourthkindfilms.jpg',
   },
+  {
+    title: 'Stateline Sports',
+    url: 'https://statelinesports.com/',
+    note: 'Sporting goods store in Lebanon, NH',
+    image: '/images/live/statelinesports.jpg',
+  },
+  {
+    title: 'Cloutier for NH',
+    url: 'https://www.cloutier4nh.com/',
+    note: 'State Representative campaign website',
+    image: '/images/live/cloutier4nh.jpg',
+  },
 ];
 
 export const photoGallery = [
