@@ -1,0 +1,187 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const practices = [
+  {
+    title: 'Semantic structure',
+    detail:
+      'Real landmarks and a correct heading order on every page, so screen readers and assistive technology can navigate by structure rather than guessing from visual styling.',
+  },
+  {
+    title: 'Keyboard operation',
+    detail:
+      'Every interactive control is reachable and operable by keyboard, with a visible focus indicator, and a skip link so keyboard users are not forced through the navigation on each page.',
+  },
+  {
+    title: 'Contrast',
+    detail:
+      'Text and interface colours are checked against WCAG contrast ratios rather than chosen by eye. We publish the numbers for our own site below.',
+  },
+  {
+    title: 'Text alternatives',
+    detail:
+      'Meaningful images carry descriptive alternative text; decorative images are marked as decorative so they are skipped rather than announced.',
+  },
+  {
+    title: 'Motion preferences',
+    detail:
+      'Entrance animations are disabled for visitors whose system requests reduced motion, under the prefers-reduced-motion media query.',
+  },
+  {
+    title: 'Works without JavaScript',
+    detail:
+      'Content is visible and readable with scripting unavailable. Animation and interactive enhancement layer on top rather than being required to read the page.',
+  },
+];
+
+const ourSite = [
+  { pair: 'Body text on white', ratio: '16.2:1' },
+  { pair: 'Muted text on white', ratio: '8.3:1' },
+  { pair: 'Crimson links and headings on white', ratio: '7.7:1' },
+  { pair: 'Forest green on white', ratio: '8.1:1' },
+  { pair: 'White on crimson buttons', ratio: '7.7:1' },
+  { pair: 'White on the darkest hero green', ratio: '11.5:1' },
+  { pair: 'White on the lightest hero green', ratio: '5.2:1' },
+];
+---
+
+<BaseLayout
+  title="Accessibility | Bee Balm Productions"
+  description="How Bee Balm Productions approaches WCAG 2.1 AA and Section 508 conformance, and the measured contrast ratios for this site."
+>
+  <section class="container hero reveal">
+    <div>
+      <h1>Accessibility</h1>
+      <p>
+        Public bodies, health systems and federally funded programs are required to make their
+        digital services accessible. We build to that standard by default rather than treating it as
+        an add-on, because retrofitting it afterwards costs several times more than doing it first.
+      </p>
+    </div>
+  </section>
+
+  <section class="container curve-band">
+    <div class="section-head reveal">
+      <h2>The standards that apply</h2>
+    </div>
+    <div class="feature-grid">
+      <article class="panel reveal">
+        <h3>WCAG 2.1 Level AA</h3>
+        <p>
+          The Web Content Accessibility Guidelines are the international reference standard. Level AA
+          is what procurement almost always asks for, and what we target on client work.
+        </p>
+      </article>
+      <article class="panel reveal">
+        <h3>Section 508</h3>
+        <p>
+          Section 508 of the Rehabilitation Act governs federal agencies and organizations receiving
+          federal funds. Since the 2017 refresh it incorporates WCAG 2.0 AA directly, so building to
+          WCAG 2.1 AA satisfies it and goes slightly further.
+        </p>
+      </article>
+      <article class="panel reveal">
+        <h3>State and municipal policy</h3>
+        <p>
+          Many New Hampshire and Vermont public bodies apply the same requirements through their own
+          procurement rules. We can supply conformance documentation as part of a bid.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <section class="container curve-band">
+    <div class="section-head reveal">
+      <h2>What we do on every build</h2>
+    </div>
+    <div class="feature-grid">
+      {
+        practices.map((item) => (
+          <article class="value-card reveal">
+            <h3>{item.title}</h3>
+            <p>{item.detail}</p>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="container curve-band">
+    <div class="section-head reveal">
+      <h2>This site, measured</h2>
+      <p>
+        Published rather than claimed. These are the contrast ratios for this site's own palette,
+        calculated against the WCAG formula. AA requires 4.5:1 for normal text and 3:1 for large text.
+      </p>
+    </div>
+    <article class="panel reveal">
+      <table class="a11y-table">
+        <thead>
+          <tr>
+            <th scope="col">Colour pair</th>
+            <th scope="col">Contrast</th>
+            <th scope="col">AA</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            ourSite.map((row) => (
+              <tr>
+                <th scope="row">{row.pair}</th>
+                <td>{row.ratio}</td>
+                <td>Pass</td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </article>
+  </section>
+
+  <section class="container curve-band">
+    <div class="section-head reveal">
+      <h2>Being straight about scope</h2>
+    </div>
+    <article class="panel reveal">
+      <p>
+        This site has not been through a third-party accessibility audit, and we do not claim a
+        formal conformance certification for it. What is stated above is what has been built and
+        measured, and the contrast figures can be checked against the published palette.
+      </p>
+      <p>
+        For a project where conformance has to be demonstrated rather than described — a public
+        procurement, a federally funded program — we will scope formal testing, including assistive
+        technology testing, and produce an Accessibility Conformance Report. That is separate work
+        with a real cost, and we would rather name it than imply it is already done.
+      </p>
+      <p>
+        Found a problem on this site, or have trouble using any part of it? Email
+        <a href="mailto:info@beebalmproductions.com">info@beebalmproductions.com</a> and we will fix it.
+      </p>
+    </article>
+  </section>
+</BaseLayout>
+
+<style>
+  .a11y-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+  }
+
+  .a11y-table th,
+  .a11y-table td {
+    text-align: left;
+    padding: 0.6rem 0.75rem;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .a11y-table thead th {
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  .a11y-table tbody th {
+    font-weight: 500;
+  }
+</style>

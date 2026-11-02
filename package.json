@@ -3,7 +3,7 @@
   "type": "module",
   "version": "1.0.0",
   "private": true,
-  "description": "Bee Balm Productions \u2014 studio website. Astro + Tailwind.",
+  "description": "Bee Balm Productions — studio website. Astro + Tailwind.",
   "engines": {
     "node": ">=22.12.0"
   },
@@ -14,6 +14,7 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/sitemap": "^3.7.4",
     "@tailwindcss/vite": "^4.2.1",
     "astro": ">=7.3.0 <7.4.0",
     "tailwindcss": "^4.2.1"

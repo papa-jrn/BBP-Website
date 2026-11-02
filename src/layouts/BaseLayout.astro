@@ -20,6 +20,11 @@ const socialImage = `${siteUrl}/images/legacy/BBPLogoIcon.png`;
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <script is:inline>
+      // Set before paint: the CSS entrance states are scoped to .js, so without
+      // this (or if scripting is off) every element renders visible.
+      document.documentElement.classList.add('js');
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalUrl} />
@@ -39,9 +44,19 @@ const socialImage = `${siteUrl}/images/legacy/BBPLogoIcon.png`;
 
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <!-- Google tag (gtag.js) -->
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-59TJNK9Y43"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-59TJNK9Y43');
+    </script>
+
     <title>{title}</title>
   </head>
   <body class={isHome ? 'home-loading' : ''}>
+    <a class="skip-link" href="#main">Skip to content</a>
     {isHome && (
       <div class="home-loader" data-home-loader>
         <div class="loader-core">
@@ -71,7 +86,7 @@ const socialImage = `${siteUrl}/images/legacy/BBPLogoIcon.png`;
         </nav>
       </header>
 
-      <main>
+      <main id="main">
         <slot />
       </main>
 
@@ -90,6 +105,7 @@ const socialImage = `${siteUrl}/images/legacy/BBPLogoIcon.png`;
           />
         </a>
         <div class="footer-links">
+          <a href="/accessibility">Accessibility</a>
           <a href="https://www.facebook.com/beebalmproductions/" target="_blank" rel="noreferrer">Facebook</a>
           <a href="https://www.linkedin.com/in/joshua-nelson-253b378/" target="_blank" rel="noreferrer">LinkedIn</a>
         </div>
