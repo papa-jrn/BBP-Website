@@ -3,13 +3,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { pricingTiers, processSteps, serviceItems } from '../data/site';
 ---
 
-<BaseLayout title="Services | Bee Balm Productions" description="Strategic web design and web app development services with a clear step-by-step process.">
+<BaseLayout title="Services | Bee Balm Productions" description="Custom applications, institutional websites, and the content and campaigns that carry them — with published prices and a clear process.">
   <section class="container hero reveal">
     <div class="hero-grid">
       <div>
-        <h1>Services built for momentum.</h1>
+        <h1>Built, written, and launched.</h1>
         <p>
-          Josh leads the work from discovery through launch, bringing in trusted collaborators when the project calls for them. Engagements are scoped to the problem, users, and requirements.
+          Josh leads the work from discovery through launch — including the writing, which most
+          studios leave to the client — bringing in trusted collaborators when the project calls for
+          them. Engagements are scoped to the problem, the users, and the requirements.
         </p>
         <div class="hero-actions">
           <a class="button primary" href="/contact">Book an Intro Call</a>
@@ -26,7 +28,7 @@ import { pricingTiers, processSteps, serviceItems } from '../data/site';
   <section class="container curve-band">
     <div class="section-head reveal">
       <h2>What we build</h2>
-      <p>Custom applications and complex websites for teams with meaningful work to do and real constraints to navigate.</p>
+      <p>Custom applications, complex websites, and the content and campaigns around them, for teams with meaningful work to do and real constraints to navigate.</p>
     </div>
     <div class="card-grid">
       {serviceItems.map((item) => (

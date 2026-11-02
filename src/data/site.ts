@@ -19,6 +19,11 @@ export const serviceItems = [
     icon: 'WEB',
   },
   {
+    title: 'Content and Campaigns',
+    body: 'Messaging, copywriting, and launch campaigns. Most studios hand back an empty shell and leave the writing to you; we deliver it filled in.',
+    icon: 'WORD',
+  },
+  {
     title: 'Discovery and Technical Direction',
     body: 'Clarify the problem, user needs, scope, and technical path before committing to a build.',
     icon: 'PLAN',
@@ -241,6 +246,7 @@ export const pricingTiers = [
       'Discovery and information architecture',
       'Design system built from your brand',
       'Content writing or migration',
+      'Launch messaging and campaign copy',
       'Forms, structured data, documented handover',
     ],
     featured: true,
