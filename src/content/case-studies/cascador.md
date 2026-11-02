@@ -16,6 +16,8 @@ metrics:
     label: "continuous engagement"
   - value: "Annual"
     label: "cohort and alumni cycles"
+editorNote: >-
+  Needs Joshua's detail: original brief, what was built from scratch versus inherited, the custom work worth highlighting, and any numbers on application volume or traffic.
 order: 2
 ---
 
@@ -59,8 +61,3 @@ founders it serves. That is a sensible decision for the organisation and had not
 with the work — but it is worth recording honestly, because it is the kind of thing that
 happens to a concentrated client relationship and is the reason Bee Balm now structures
 engagements differently.
-
-> **Note for Joshua:** this one needs your detail to be as strong as it should be — the
-> original brief, what you built from scratch versus inherited, the specific custom work you
-> are proudest of, and any numbers you have on application volume or traffic. Those turn
-> this from a credible outline into a persuasive case study.

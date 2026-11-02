@@ -15,7 +15,10 @@ metrics:
     label: "project case pages"
   - value: "10+ yrs"
     label: "of built work presented"
+editorNote: >-
+  Needs Joshua's detail on which effects and layout behaviours required real code. Live site currently shows placeholder text ("Badget Text") and a page title of "Home 2" — not Bee Balm's to fix unpaid, so this stays a draft until resolved.
 order: 3
+draft: true
 ---
 
 ## The situation
@@ -60,9 +63,3 @@ Video is a natural fit for architectural work — walkthroughs and site films do
 stills cannot — and that capability sits in-house at Bee Balm alongside the web work. It was
 not part of this engagement, partly a matter of geography, but it is available where a
 practice wants its work shown moving.
-
-> **Note for Joshua:** two things would strengthen this. First, the specific custom work —
-> which effects or layout behaviours needed real code, since that is the whole point of the
-> story. Second, the live site currently has placeholder text visible ("Badget Text") and a
-> page title of "Home 2". If you still have access it is worth fixing, because this is a site
-> you are sending prospects to.

@@ -22,6 +22,8 @@ const caseStudies = defineCollection({
     /** Hard numbers shown as a stat row. Keep these verifiable. */
     metrics: z.array(z.object({ value: z.string(), label: z.string() })).default([]),
     image: z.string().optional(),
+    /** Private working note. Never rendered — safe for reminders to self. */
+    editorNote: z.string().optional(),
     /** Lower sorts first. */
     order: z.number().default(50),
     draft: z.boolean().default(false),
