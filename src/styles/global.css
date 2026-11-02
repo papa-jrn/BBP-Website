@@ -327,6 +327,38 @@ main {
   box-shadow: 0 16px 24px rgba(0, 0, 0, 0.16);
 }
 
+/* A project screenshot in the hero. The default .hero-image crops to fill its
+   box, which is right for a photograph and wrong for an interface — the whole
+   point is what the application actually looks like, so show all of it. */
+.hero-project-preview {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.hero-project-preview .hero-image {
+  height: auto;
+  object-fit: contain;
+  background: #fff;
+  transition: box-shadow 200ms ease, transform 200ms ease;
+}
+
+.hero-project-preview:hover .hero-image,
+.hero-project-preview:focus-visible .hero-image {
+  transform: translateY(-2px);
+  box-shadow: 0 22px 34px rgba(0, 0, 0, 0.22);
+}
+
+.hero-project-caption {
+  display: block;
+  margin-top: 0.65rem;
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.85);
+}
+
 .sticker {
   position: absolute;
   background: #fff;
@@ -336,11 +368,6 @@ main {
   box-shadow: var(--shadow);
   font-weight: 800;
   font-size: 0.88rem;
-}
-
-.sticker.a {
-  left: -14px;
-  top: 16px;
 }
 
 .sticker.b {
