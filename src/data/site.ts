@@ -52,7 +52,7 @@ export const processSteps = [
   {
     title: 'Visual Design System',
     detail:
-      'We develop a playful, branded interface kit including typography, color, components, and motion language.',
+      'We develop a branded interface kit including typography, color, components, and motion language.',
     chip: 'Week 2-3',
   },
   {
