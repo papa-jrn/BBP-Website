@@ -451,16 +451,15 @@ main {
   transition: transform 500ms ease, opacity 500ms ease;
 }
 
-.stat-card.in-view,
-.service-card.in-view,
-.work-card.in-view,
-.photo-card.in-view,
-.panel.in-view,
-.process-step.in-view,
-.value-card.in-view,
-.contact-card.in-view,
-.owner-card.in-view,
-.reveal.in-view {
+/* Every rule that hides an element for its entrance is gated on .js, which
+   makes those rules two classes deep. A revealed state of the same depth
+   decides nothing by specificity and falls back to source order — which is how
+   `.js .reveal`, sitting lower in this file, kept every .reveal element at
+   opacity 0 forever. Matching .js here puts the revealed state one class
+   deeper than anything that hides an element, so it wins wherever it sits. */
+.js :is(.stat-card, .service-card, .work-card, .photo-card, .panel,
+        .process-step, .value-card, .contact-card, .owner-card,
+        .info-node, .pod-card, .reveal).in-view {
   transform: translateY(0);
   opacity: 1;
 }
@@ -851,11 +850,6 @@ main {
   transition: transform 500ms ease, opacity 500ms ease;
 }
 
-.info-node.in-view {
-  transform: translateY(0);
-  opacity: 1;
-}
-
 .info-node h3 {
   font-size: 1.2rem;
 }
@@ -878,11 +872,6 @@ main {
   box-shadow: var(--shadow);
   padding: 0.95rem;
   transition: transform 500ms ease, opacity 500ms ease;
-}
-
-.pod-card.in-view {
-  transform: translateY(0);
-  opacity: 1;
 }
 
 .pod-card h3 {
