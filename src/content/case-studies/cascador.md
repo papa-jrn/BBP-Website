@@ -18,7 +18,7 @@ metrics:
     label: "cohort and alumni cycles"
 editorNote: >-
   Needs Joshua's detail: original brief, what was built from scratch versus inherited, the custom work worth highlighting, and any numbers on application volume or traffic.
-order: 2
+order: 4
 ---
 
 ## The situation

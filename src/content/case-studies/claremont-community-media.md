@@ -1,111 +1,87 @@
 ---
-title: "An assignment desk for a newsroom that doesn't have one"
+title: "Running the station's web presence, and a safe route for contributors"
 client: "Claremont Community Media Center"
 sector: "Municipal / public access media"
-summary: "A story lead board that pulls live community calendars from ten towns, suggests what to cover, and lets staff claim an assignment — plus the station's website, streaming and contributor pipeline."
+summary: "The station website and live streaming for two municipal channels, plus the version control and deployment workflow that lets an outside developer publish to the site safely."
 year: "2020–2026"
-url: "https://events.claremontv.org"
+url: "https://claremontv.org"
 role:
-  - "Story Lead Board application design and build"
-  - "Calendar aggregation and lead scoring"
   - "Website design and build"
   - "Live streaming integration for two channels"
+  - "Video library presentation"
   - "Git and Cloudflare deployment workflow for contributors"
+  - "Ongoing operation and iteration"
 metrics:
-  - value: "10"
-    label: "towns covered across NH and VT"
   - value: "3x"
     label: "monthly programming output"
   - value: "1,300%"
     label: "growth in digital reach in one year"
+  - value: "2"
+    label: "channels streamed live"
 editorNote: >-
   Joshua is Executive Director here as well as the developer — disclosed in the body.
-  Attribution: the Story Lead Board at events.claremontv.org is his build, LLM-assisted.
-  The School Board Meeting Navigator is Kevin Tyson's build, also LLM-assisted; Bee Balm
-  contributed polish and the Git/Cloudflare publishing workflow. Do not conflate the two.
-  Worth adding: how long the Lead Board took to build, and whether coverage volume changed
-  measurably after it shipped.
-order: 2
+  The internal assignment-desk application lives in its own case study, Events to Cover;
+  keep this one to the public website, streaming and the contributor pipeline so the two
+  do not tell the same story twice. The School Board Meeting Navigator is Kevin Tyson's
+  build, LLM-assisted; Bee Balm contributed polish and the publishing workflow.
+order: 3
 ---
 
-## The problem nobody budgets for
+## The situation
 
-A community media centre with two municipal channels has to decide, every week, what to
-send a crew to. In a newsroom that is an assignment desk — an editor, a whiteboard, and
-somebody whose job is knowing what is happening in town.
+Claremont Community Media Center — Claremont Community Television — is the 501(c)(3) that
+runs public, education and government programming for Claremont, New Hampshire and Sullivan
+County. Channel 8 carries school board meetings, local programmes and Sunday worship;
+Channel 10 carries city council, zoning, planning, conservation commission and county
+commissioner meetings.
 
-A 501(c)(3) with a $140K budget has none of that. What it has is a handful of staff and
-board members, several town calendars nobody has time to read, and a recurring Monday
-question: what are we covering this week, and is anyone already on it?
-
-## The Story Lead Board
-
-[events.claremontv.org](https://events.claremontv.org) is the answer — an internal
-assignment desk built for how this organisation actually works.
-
-**It gathers the leads.** The board pulls from live community calendars across roughly a
-25-mile radius — Claremont, Charlestown, Newport, Springfield, Sunapee, Lebanon, Hanover,
-White River Junction, Woodstock and Etna — and refreshes twice a week. Nobody has to check
-ten websites.
-
-**It suggests what to shoot.** Leads are sorted into a dated rundown and filterable by town,
-by type (arts, business, community, health and seniors, kids and family, markets, sports
-and recreation), by whether they are free, and by whether anyone has picked them up yet. A
-suggested shoots section surfaces the desk's recommendations.
-
-**It carries a story angle.** Each lead has an angle attached, so the person reading the
-board sees a possible story rather than a calendar entry.
-
-**It handles who is covering what.** Picking a lead claims it and shows the rest of the team
-your name against it. That one feature removes the most common failure in a volunteer-heavy
-operation: two people covering the same thing, or everyone assuming someone else has it.
-
-**It is honest about its sources.** Leads pulled from listing sites are flagged to verify
-with the organiser before a crew is dispatched, and every lead names where it came from. A
-tool that aggregates third-party data and pretends it is all reliable will eventually send
-a crew to an event that was cancelled a month ago.
-
-Built solo, with LLM assistance — which is the only reason an organisation this size has
-bespoke editorial tooling at all.
+Two things have to work. Residents need to watch, live or afterwards. And an organisation
+with a $140K budget and no technical staff needs a website that does not require a developer
+on call to change anything.
 
 ## The honest disclosure
 
 Bee Balm's principal is also this organisation's Executive Director. That is stated plainly
 rather than buried: this was not an arm's-length commission. What it means is unusually
-complete knowledge of the operation — the broadcast workflow, the municipal relationships,
-the funding constraints, and what the Monday meeting actually feels like — informing every
-decision in the build.
+complete knowledge of the operation — the broadcast workflow, the municipal relationships
+and the funding constraints — informing every decision.
 
-## The rest of the picture
+## What was built
 
-**The station's website.** Live streams for both channels lead the page, because that is
-what most visitors came for, with the video library browsable beneath.
+**A site that leads with watching.** Live streams for both channels are the first thing on
+the page, because that is what most visitors came for. The video library sits beneath,
+browsable rather than being an archive you need to already know your way around.
 
-**A publishing pipeline for contributors.** The site is set up so a developer who is not
-staff can make changes, review them and publish safely — version control through Git,
-deployment through Cloudflare. No editing live, no single bottleneck.
+**A publishing pipeline for contributors.** The more durable piece is the least visible. The
+site is set up so a developer who is not staff can make changes, review them and publish them
+safely — version control through Git, deployment through Cloudflare. No handing files to
+someone, no editing live, no single person as the bottleneck for every change.
 
-That pipeline is how the **School Board Meeting Navigator** reaches the site — the tool that
-lets residents find a specific item inside the school board meeting library rather than
-scrubbing a three-hour recording. It was **built by Kevin Tyson**, also using LLM-assisted
-development; Bee Balm's part was polish and the route to publish. It is named here because
-it makes the point of the infrastructure: a capable contributor with a safe way to ship
-produced genuinely useful civic software for an organisation that could never have
-commissioned it.
+That matters because small nonprofits rarely have a second developer and almost never have a
+safe way for an outside contributor to help. Giving a volunteer a route to ship is the
+difference between occasional help and sustained contribution.
+
+## Where that pipeline paid off
+
+The School Board Meeting Navigator — the tool that lets residents find a specific item inside
+the school board meeting library instead of scrubbing through a three-hour recording — was
+**built by Kevin Tyson**, using LLM-assisted development. Bee Balm's part was polishing it and
+providing the workflow through which it reaches the live site.
+
+It is worth naming because it demonstrates the point of the infrastructure. A community media
+organisation got a genuinely useful piece of civic software because a capable contributor had
+a safe route to publish.
 
 ## Results
 
-Monthly programming output tripled from roughly 20 to over 60 community, educational and
-municipal programmes, and digital reach across platforms grew by more than 1,300% in a
-single year. The web work sits alongside a full modernisation: 4K production standards, two
+Over the period, monthly programming output tripled from roughly 20 to over 60 community,
+educational and municipal programmes, and digital reach across platforms grew by more than
+1,300% in a single year.
+
+The web work sits alongside a full modernisation of the station: 4K production standards, two
 internal studios, a mobile production unit, and the streaming system the site depends on.
 
-## Why this generalises
+---
 
-The Story Lead Board is not really about television. Any organisation that has to decide
-where to send limited people — a volunteer coordinator, a regional nonprofit, an outreach
-team, a local newsroom — has the same problem: scattered sources, no shared view of what is
-claimed, and no time to build the thing that would fix it.
-
-That is now a two-week build rather than a six-month one, which is precisely what puts it
-within reach of organisations that have never been able to afford custom software.
+The station's internal assignment desk is a separate piece of work.
+[Read the Events to Cover case study](/portfolio/events-to-cover).

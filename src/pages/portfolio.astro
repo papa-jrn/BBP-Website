@@ -45,6 +45,7 @@ const caseStudies = (await getCollection('caseStudies', ({ data }) => !data.draf
                 {study.data.sector} · {study.data.year}
               </p>
               <h3>{study.data.client}</h3>
+              <p class="case-card__title">{study.data.title}</p>
               <p>{study.data.summary}</p>
               {study.data.metrics.length > 0 && (
                 <ul class="case-card-metrics">
@@ -164,6 +165,13 @@ const caseStudies = (await getCollection('caseStudies', ({ data }) => !data.draf
   .case-card-metrics span {
     font-size: 0.78rem;
     opacity: 0.75;
+  }
+
+  .case-card__title {
+    font-weight: 700;
+    margin: 0.1rem 0 0.4rem;
+    color: var(--honey);
+    font-size: 0.95rem;
   }
 
   .case-card__links {

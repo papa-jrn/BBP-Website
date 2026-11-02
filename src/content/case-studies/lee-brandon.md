@@ -13,7 +13,7 @@ role:
 editorNote: >-
   Needs Joshua's detail: what existed before, how much of the final copy is his, and
   whether there are enquiry or booking numbers worth citing.
-order: 4
+order: 5
 ---
 
 ## The situation
