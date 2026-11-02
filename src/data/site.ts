@@ -159,3 +159,57 @@ export const photoGallery = [
   '/images/legacy/DSC_1192.jpg',
   '/images/legacy/DSC_1281.jpg',
 ];
+/**
+ * Healthcare, federal and institutional work. This is the record that matters
+ * to RFP evaluators and it was previously absent from the site entirely.
+ */
+export const institutionalWork = [
+  {
+    org: 'Dartmouth Health (Dartmouth-Hitchcock)',
+    what: 'Campaign and event site templates',
+    note: 'Templates built for Dartmouth-Hitchcock remain in production today across The Prouty and CHaD — still serving one of New England\u2019s largest health systems years after delivery.',
+    sector: 'Health system',
+  },
+  {
+    org: 'The Prouty',
+    what: 'Fundraising event web presence',
+    note: 'Work on the web presence of Dartmouth Cancer Center\u2019s flagship fundraising event, built on the Luminate Online platform.',
+    sector: 'Fundraising',
+  },
+  {
+    org: 'Valley Regional Healthcare',
+    what: 'Hospital website',
+    note: 'Full hospital website built with the in-house marketing team. The organization has since been acquired by Dartmouth Health.',
+    sector: 'Health system',
+  },
+  {
+    org: 'International Association of Forensic Nurses',
+    what: 'National clinical training platform',
+    note: 'Front-line technical support and certification administration for the national Sexual Assault Forensic Examination training platform, delivered with the federal Office on Violence Against Women.',
+    sector: 'Federal / clinical training',
+  },
+  {
+    org: 'Centers for Disease Control and Prevention',
+    what: 'Web-based CME platform',
+    note: 'End-to-end administration of a CDC-distributed continuing medical education platform, including a smoking and vaping prevention counseling program for healthcare workers nationwide.',
+    sector: 'Federal / public health',
+  },
+  {
+    org: 'National Institutes of Health',
+    what: 'Genetics in Clinical Practice',
+    note: 'Design and usability contribution plus field support for an NIH-distributed CME program for physicians, from development through delivery.',
+    sector: 'Federal / clinical training',
+  },
+  {
+    org: 'Interactive Media Laboratory, Dartmouth Medical School',
+    what: 'Research media lab operations',
+    note: 'Administrative Director of a $1.6M-per-year government-funded research media lab producing interactive clinical training simulations.',
+    sector: 'Academic research',
+  },
+  {
+    org: 'Simbex / TREAT',
+    what: 'NIH-funded center administration',
+    note: 'Managed grant proposals, award administration and federal reporting for an NIH-funded rehabilitation engineering center with a $750K annual budget.',
+    sector: 'Federal / grant administration',
+  },
+] as const;

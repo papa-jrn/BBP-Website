@@ -113,10 +113,16 @@ const socialImage = `${siteUrl}/images/legacy/BBPLogoIcon.png`;
             }
           }
         },
-        { threshold: 0.16 },
+        // rootMargin rather than a ratio: an element taller than the viewport
+        // can never reach threshold 0.16, so it would stay hidden forever.
+        { threshold: 0, rootMargin: '0px 0px -12% 0px' },
       );
 
-      document.querySelectorAll('.reveal').forEach((item) => observer.observe(item));
+      // Every class that starts at opacity 0 must be observed, or it never
+      // becomes visible. Previously only .reveal was watched, which meant a
+      // .panel added without .reveal was invisible with no obvious cause.
+      const animated = '.reveal, .panel, .stat-card, .service-card, .work-card, .photo-card, .process-step, .value-card, .contact-card, .owner-card';
+      document.querySelectorAll(animated).forEach((item) => observer.observe(item));
 
       document.querySelectorAll('[data-carousel]').forEach((carousel) => {
         const track = carousel.querySelector('[data-carousel-track]');

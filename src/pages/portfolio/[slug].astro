@@ -1,0 +1,153 @@
+---
+import type { GetStaticPaths } from 'astro';
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export const getStaticPaths = (async () => {
+  const studies = await getCollection('caseStudies', ({ data }) => !data.draft);
+  return studies.map((study) => ({
+    params: { slug: study.id },
+    props: { study },
+  }));
+}) satisfies GetStaticPaths;
+
+const { study } = Astro.props;
+const { Content } = await render(study);
+const d = study.data;
+---
+
+<BaseLayout title={`${d.client} | Bee Balm Productions`} description={d.summary}>
+  <section class="container hero reveal">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="/portfolio">Portfolio</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">{d.client}</span>
+    </nav>
+
+    <p class="tag">{d.sector} · {d.year}</p>
+    <h1>{d.title}</h1>
+    <p class="case-summary">{d.summary}</p>
+
+    <div class="hero-actions">
+      {d.url && <a class="button primary" href={d.url} target="_blank" rel="noopener">Visit the live site</a>}
+      <a class="button" href="/contact">Discuss a similar project</a>
+    </div>
+  </section>
+
+  {
+    d.metrics.length > 0 && (
+      <section class="container curve-band">
+        <div class="stats-grid">
+          {d.metrics.map((m) => (
+            <article class="stat-card reveal">
+              <strong>{m.value}</strong>
+              <span>{m.label}</span>
+            </article>
+          ))}
+        </div>
+      </section>
+    )
+  }
+
+  <section class="container">
+    <div class="case-layout">
+      <article class="case-body panel reveal">
+        <Content />
+      </article>
+
+      <aside class="case-aside">
+        <div class="panel reveal">
+          <h2>Scope of work</h2>
+          <ul class="scope-list">
+            {d.role.map((r) => <li>{r}</li>)}
+          </ul>
+        </div>
+        <div class="panel reveal">
+          <h2>Considering something similar?</h2>
+          <p>Tell us what you are building and where you are stuck.</p>
+          <a class="button primary" href="/contact">Start a conversation</a>
+        </div>
+      </aside>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .crumbs {
+    display: flex;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    opacity: 0.75;
+    margin-bottom: 1rem;
+  }
+
+  .case-summary {
+    font-size: 1.15rem;
+    max-width: 60ch;
+    margin-top: 0.75rem;
+  }
+
+  .case-layout {
+    display: grid;
+    gap: 2rem;
+    align-items: start;
+  }
+
+  @media (min-width: 960px) {
+    .case-layout {
+      grid-template-columns: minmax(0, 1fr) 20rem;
+    }
+  }
+
+  .case-aside {
+    display: grid;
+    gap: 1.25rem;
+    position: sticky;
+    top: 6rem;
+  }
+
+  @media (max-width: 959px) {
+    .case-aside {
+      position: static;
+    }
+  }
+
+  .case-body :global(h2) {
+    margin-top: 2em;
+  }
+
+  .case-body :global(h2:first-child) {
+    margin-top: 0;
+  }
+
+  .case-body :global(p),
+  .case-body :global(li) {
+    line-height: 1.7;
+  }
+
+  .case-body :global(table) {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1.25rem;
+    font-size: 0.95rem;
+  }
+
+  .case-body :global(th),
+  .case-body :global(td) {
+    text-align: left;
+    padding: 0.6rem 0.75rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .case-body :global(th) {
+    font-weight: 700;
+  }
+
+  .scope-list {
+    margin: 0;
+    padding-left: 1.1rem;
+    display: grid;
+    gap: 0.4rem;
+    font-size: 0.95rem;
+  }
+</style>

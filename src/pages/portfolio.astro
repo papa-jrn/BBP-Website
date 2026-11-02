@@ -1,15 +1,25 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { externalSites, portfolioItems } from '../data/site';
+import { externalSites, institutionalWork, portfolioItems } from '../data/site';
+
+const caseStudies = (await getCollection('caseStudies', ({ data }) => !data.draft)).sort(
+  (a, b) => a.data.order - b.data.order
+);
 ---
 
-<BaseLayout title="Portfolio | Bee Balm Productions" description="Selected web, campaign, and visual projects from Bee Balm Productions.">
+<BaseLayout
+  title="Portfolio | Bee Balm Productions"
+  description="Healthcare, federal, nonprofit and campaign web work from Bee Balm Productions — including templates still running in production at Dartmouth Health."
+>
   <section class="container hero reveal">
     <div class="hero-grid">
       <div>
-        <h1>Selected project work</h1>
+        <h1>Work that is still running</h1>
         <p>
-          A mix of healthcare, education, campaign, and product-focused websites built to be clear, useful, and engaging.
+          Thirty years of web and multimedia work across health systems, federally funded clinical
+          training, higher education, nonprofits and local business — including site templates built
+          for Dartmouth-Hitchcock that remain in production today.
         </p>
         <div class="hero-actions">
           <a class="button primary" href="/contact">Discuss Your Project</a>
@@ -21,53 +31,152 @@ import { externalSites, portfolioItems } from '../data/site';
     </div>
   </section>
 
-  <section class="container curve-band">
-    <div class="section-head reveal">
-      <h2>Impact snapshot infographic</h2>
-      <p>Recent work patterns across industries and product goals.</p>
-    </div>
-    <div class="stats-grid">
-      <article class="stat-card reveal"><strong>18+</strong><span>Featured websites and apps</span></article>
-      <article class="stat-card reveal"><strong>7+</strong><span>Focus industries represented</span></article>
-      <article class="stat-card reveal"><strong>End-to-End</strong><span>Strategy through launch support</span></article>
-    </div>
-  </section>
+  {
+    caseStudies.length > 0 && (
+      <section class="container curve-band">
+        <div class="section-head reveal">
+          <h2>Case studies</h2>
+          <p>What the problem was, what we did, and what changed.</p>
+        </div>
+        <div class="feature-grid">
+          {caseStudies.map((study) => (
+            <article class="pod-card reveal case-card">
+              <p class="tag">
+                {study.data.sector} · {study.data.year}
+              </p>
+              <h3>{study.data.client}</h3>
+              <p>{study.data.summary}</p>
+              {study.data.metrics.length > 0 && (
+                <ul class="case-card-metrics">
+                  {study.data.metrics.slice(0, 3).map((m) => (
+                    <li>
+                      <strong>{m.value}</strong>
+                      <span>{m.label}</span>
+                    </li>
+                  ))}
+                </ul>
+              )}
+              <a class="site-link" href={`/portfolio/${study.id}`}>
+                Read the case study
+              </a>
+            </article>
+          ))}
+        </div>
+      </section>
+    )
+  }
 
   <section class="container curve-band">
     <div class="section-head reveal">
-      <h2>Live Websites</h2>
-      <p>Recent and active sites to explore.</p>
-    </div>
-    <div class="feature-grid live-sites-grid">
-      {externalSites.map((site) => (
-        <article class="pod-card reveal ext-site-card">
-          <img class="ext-site-image" src={site.image} alt={`${site.title} website graphic`} loading="lazy" />
-          <h3>{site.title}</h3>
-          <p>{site.note}</p>
-          <a class="site-link" href={site.url} target="_blank" rel="noreferrer">Visit Site</a>
-        </article>
-      ))}
-    </div>
-  </section>
-
-  <section class="container curve-band">
-    <div class="section-head reveal">
-      <h2>Web Portfolio</h2>
+      <h2>Healthcare, federal and institutional work</h2>
       <p>
-        These projects were built from 2012 through 2020. Many of these original websites are no longer live, so this section
-        preserves the work as screenshots.
+        Two decades delivering and administering web platforms for health systems, federal health
+        agencies and university research programs — including grant compliance and federal reporting.
       </p>
     </div>
     <div class="card-grid">
-      {portfolioItems.map((item) => (
-        <article class="work-card reveal">
-          <img src={item.image} alt={item.title} loading="lazy" />
-          <div class="work-meta">
-            <h3>{item.title}</h3>
-            <span class="tag">{item.tag}</span>
-          </div>
-        </article>
-      ))}
+      {
+        institutionalWork.map((item) => (
+          <article class="panel reveal inst-card">
+            <span class="tag">{item.sector}</span>
+            <h3>{item.org}</h3>
+            <p class="inst-what">{item.what}</p>
+            <p>{item.note}</p>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="container curve-band">
+    <div class="section-head reveal">
+      <h2>Live websites</h2>
+      <p>Recent and active sites across nonprofits, local business and community organizations.</p>
+    </div>
+    <div class="feature-grid live-sites-grid">
+      {
+        externalSites.map((site) => (
+          <article class="pod-card reveal ext-site-card">
+            <img
+              class="ext-site-image"
+              src={site.image}
+              alt={`${site.title} website graphic`}
+              loading="lazy"
+            />
+            <h3>{site.title}</h3>
+            <p>{site.note}</p>
+            <a class="site-link" href={site.url} target="_blank" rel="noreferrer">
+              Visit Site
+            </a>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="container curve-band">
+    <div class="section-head reveal">
+      <h2>Earlier work, 2012–2020</h2>
+      <p>
+        Many of these original sites are no longer live, so this section preserves the work as
+        screenshots.
+      </p>
+    </div>
+    <div class="card-grid">
+      {
+        portfolioItems.map((item) => (
+          <article class="work-card reveal">
+            <img src={item.image} alt={item.title} loading="lazy" />
+            <div class="work-meta">
+              <h3>{item.title}</h3>
+              <span class="tag">{item.tag}</span>
+            </div>
+          </article>
+        ))
+      }
     </div>
   </section>
 </BaseLayout>
+
+<style>
+  .case-card-metrics {
+    list-style: none;
+    margin: 1rem 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+  }
+
+  .case-card-metrics strong {
+    display: block;
+    font-size: 1.35rem;
+    line-height: 1.1;
+  }
+
+  .case-card-metrics span {
+    font-size: 0.78rem;
+    opacity: 0.75;
+  }
+
+  .inst-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .inst-card h3 {
+    margin: 0.35rem 0 0;
+    font-size: 1.1rem;
+  }
+
+  .inst-what {
+    font-weight: 700;
+    margin: 0;
+    opacity: 0.85;
+  }
+
+  .inst-card .tag {
+    align-self: flex-start;
+  }
+</style>
