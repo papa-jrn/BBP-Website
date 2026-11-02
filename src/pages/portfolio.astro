@@ -56,9 +56,16 @@ const caseStudies = (await getCollection('caseStudies', ({ data }) => !data.draf
                   ))}
                 </ul>
               )}
-              <a class="site-link" href={`/portfolio/${study.id}`}>
-                Read the case study
-              </a>
+              <div class="case-card__links">
+                <a class="site-link" href={`/portfolio/${study.id}`}>
+                  Read the case study
+                </a>
+                {study.data.url && (
+                  <a class="site-link" href={study.data.url} target="_blank" rel="noreferrer">
+                    Visit site
+                  </a>
+                )}
+              </div>
             </article>
           ))}
         </div>
@@ -157,6 +164,14 @@ const caseStudies = (await getCollection('caseStudies', ({ data }) => !data.draf
   .case-card-metrics span {
     font-size: 0.78rem;
     opacity: 0.75;
+  }
+
+  .case-card__links {
+    margin-top: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.25rem;
+    padding-top: 0.5rem;
   }
 
   .inst-card {
