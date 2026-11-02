@@ -9,24 +9,24 @@ export const navLinks = [
 
 export const serviceItems = [
   {
-    title: 'Experience-Driven Websites',
-    body: 'Custom marketing sites and web apps designed for speed, storytelling, and conversion.',
-    icon: 'UX',
-  },
-  {
-    title: 'Web App Product Design',
-    body: 'User flows, wireframes, and interfaces shaped around real user tasks and business outcomes.',
+    title: 'Custom Web Applications',
+    body: 'Purpose-built internal tools and applications shaped around real staff workflows, integrations, and operational needs.',
     icon: 'APP',
   },
   {
-    title: 'Brand + Messaging Systems',
-    body: 'Visual identity, voice, and launch-ready content systems that stay consistent as you scale.',
-    icon: 'BRAND',
+    title: 'Institutional Website Projects',
+    body: 'Complex website rebuilds for healthcare, education, and nonprofit organizations, from discovery and content through launch.',
+    icon: 'WEB',
   },
   {
-    title: 'Growth + Optimization',
-    body: 'SEO setup, analytics, accessibility, and continuous improvement after launch.',
-    icon: 'GROW',
+    title: 'Discovery and Technical Direction',
+    body: 'Clarify the problem, user needs, scope, and technical path before committing to a build.',
+    icon: 'PLAN',
+  },
+  {
+    title: 'Ongoing Product Support',
+    body: 'Practical improvements and technical support that help a useful website or application keep serving its team.',
+    icon: 'CARE',
   },
 ];
 
@@ -221,22 +221,22 @@ export const institutionalWork = [
  */
 export const pricingTiers = [
   {
-    name: 'Starter site',
-    price: '$3,500',
-    unit: 'fixed',
-    best: 'A small organization that already has its copy and images.',
+    name: 'Focused engagement',
+    price: 'From $5,000',
+    unit: 'scoped project',
+    best: 'A defined website, application, or improvement project with a focused scope.',
     includes: [
-      'Five to seven pages',
-      'Responsive build and accessibility basics',
-      'Contact form and search-engine setup',
-      'Launch and handover',
+      'Discovery and written scope',
+      'Design and implementation for an agreed feature or section',
+      'Responsive, accessible interface',
+      'Launch notes and handover',
     ],
   },
   {
     name: 'Full site',
     price: '$9,000–$14,000',
     unit: 'fixed',
-    best: 'The common case: a practice or nonprofit that needs the whole thing.',
+    best: 'Organizations that need a complete website planned, built, and launched.',
     includes: [
       'Discovery and information architecture',
       'Design system built from your brand',
@@ -249,7 +249,7 @@ export const pricingTiers = [
     name: 'Institutional project',
     price: '$22,000–$40,000',
     unit: 'fixed',
-    best: 'Municipalities, school districts, health systems and grant-funded programs.',
+    best: 'Healthcare, education, nonprofit, and public-serving organizations with complex needs.',
     includes: [
       'Stakeholder discovery and written process',
       'WCAG 2.1 AA conformance work and documentation',
@@ -261,7 +261,7 @@ export const pricingTiers = [
     name: 'Internal tool',
     price: '$15,000–$45,000',
     unit: 'fixed',
-    best: 'Software rather than a website — dashboards, trackers, assignment desks.',
+    best: 'Teams that need software rather than another spreadsheet or off-the-shelf website.',
     includes: [
       'Problem definition with the people who will use it',
       'Data sources, integrations and workflow',
@@ -273,7 +273,7 @@ export const pricingTiers = [
     name: 'Care plan',
     price: '$125–$250',
     unit: 'per month',
-    best: 'Anyone who would rather not think about their website again.',
+    best: 'Teams that need dependable follow-through after launch.',
     includes: [
       'Hosting and monitoring',
       'Content and copy updates',

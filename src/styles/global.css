@@ -1183,3 +1183,7 @@ html:not(.js) body.home-loading {
 .skip-link:focus {
   top: 0;
 }
+/* Keep primary button labels legible against the dark red brand fill. */
+.button.primary {
+  color: #f3a8c0;
+}
