@@ -29,7 +29,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <article class="contact-card reveal">
         <h3>Project inquiry form</h3>
         <form class="contact-form" action="https://formsubmit.co/info@beebalmproductions.com" method="post">
-          <input type="hidden" name="_subject" value="Bee Balm Website Inquiry" />
+          <input type="hidden" name="_subject" value="Bee Balm Project Inquiry" />
           <input type="hidden" name="_captcha" value="false" />
           <input type="hidden" name="_template" value="table" />
           <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
@@ -51,12 +51,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               <input type="text" name="organization" />
             </label>
             <label>
-              Project type
-              <select name="project_type">
-                <option>Marketing website</option>
-                <option>Web application</option>
-                <option>Website redesign</option>
-                <option>Brand + website package</option>
+              What are you after?
+              <select name="offer">
+                <option>Not sure yet — tell me what fits</option>
+                <option>Starter site ($3,500)</option>
+                <option>Full site ($9,000–$14,000)</option>
+                <option>Institutional / RFP project ($22,000–$40,000)</option>
+                <option>Internal tool or application ($15,000–$45,000)</option>
+                <option>Care plan for an existing site ($125–$250/mo)</option>
+                <option>Something else</option>
               </select>
             </label>
           </div>
@@ -70,16 +73,32 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <label>
               Budget range
               <select name="budget">
-                <option>$2K-$5K</option>
-                <option>$5K-$10K</option>
-                <option>$10K-$25K</option>
-                <option>$25K-$50K</option>
-                <option>$50K+</option>
+                <option>Working it out — need a recommendation</option>
+                <option>Under $5,000</option>
+                <option>$5,000–$15,000</option>
+                <option>$15,000–$30,000</option>
+                <option>$30,000–$60,000</option>
+                <option>$60,000+</option>
               </select>
             </label>
             <label>
               Desired timeline
               <input type="text" name="timeline" placeholder="Example: launch in 8 weeks" />
+            </label>
+          </div>
+
+          <div class="form-row">
+            <label>
+              Is this a formal RFP or procurement?
+              <select name="procurement">
+                <option>No — we can just decide</option>
+                <option>Yes — there is an RFP document</option>
+                <option>Likely, but not issued yet</option>
+              </select>
+            </label>
+            <label>
+              Submission or decision deadline
+              <input type="text" name="deadline" placeholder="Example: proposals due Dec 12" />
             </label>
           </div>
 

@@ -213,3 +213,72 @@ export const institutionalWork = [
     sector: 'Federal / grant administration',
   },
 ] as const;
+
+/**
+ * Published pricing. Stated as fixed fees rather than an hourly rate: the
+ * client is buying a finished thing, and an hourly rate would price the
+ * typing rather than the judgement that makes the build fast.
+ */
+export const pricingTiers = [
+  {
+    name: 'Starter site',
+    price: '$3,500',
+    unit: 'fixed',
+    best: 'A small organization that already has its copy and images.',
+    includes: [
+      'Five to seven pages',
+      'Responsive build and accessibility basics',
+      'Contact form and search-engine setup',
+      'Launch and handover',
+    ],
+  },
+  {
+    name: 'Full site',
+    price: '$9,000–$14,000',
+    unit: 'fixed',
+    best: 'The common case: a practice or nonprofit that needs the whole thing.',
+    includes: [
+      'Discovery and information architecture',
+      'Design system built from your brand',
+      'Content writing or migration',
+      'Forms, structured data, documented handover',
+    ],
+    featured: true,
+  },
+  {
+    name: 'Institutional project',
+    price: '$22,000–$40,000',
+    unit: 'fixed',
+    best: 'Municipalities, school districts, health systems and grant-funded programs.',
+    includes: [
+      'Stakeholder discovery and written process',
+      'WCAG 2.1 AA conformance work and documentation',
+      'Content migration at volume',
+      'Staff training and a post-launch maintenance period',
+    ],
+  },
+  {
+    name: 'Internal tool',
+    price: '$15,000–$45,000',
+    unit: 'fixed',
+    best: 'Software rather than a website — dashboards, trackers, assignment desks.',
+    includes: [
+      'Problem definition with the people who will use it',
+      'Data sources, integrations and workflow',
+      'Build, testing and rollout',
+      'Documentation and handover',
+    ],
+  },
+  {
+    name: 'Care plan',
+    price: '$125–$250',
+    unit: 'per month',
+    best: 'Anyone who would rather not think about their website again.',
+    includes: [
+      'Hosting and monitoring',
+      'Content and copy updates',
+      'Dependency and security maintenance',
+      'Priority availability when something matters',
+    ],
+  },
+] as const;

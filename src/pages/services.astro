@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { processSteps, serviceItems } from '../data/site';
+import { pricingTiers, processSteps, serviceItems } from '../data/site';
 ---
 
 <BaseLayout title="Services | Bee Balm Productions" description="Strategic web design and web app development services with a clear step-by-step process.">
@@ -76,4 +76,105 @@ import { processSteps, serviceItems } from '../data/site';
       </article>
     </div>
   </section>
+
+  <section class="container curve-band" id="pricing">
+    <div class="section-head reveal">
+      <h2>What it costs</h2>
+      <p>
+        Fixed fees, published, so you can tell before you call whether we are in your range.
+        Every project still starts with a free conversation and a written proposal.
+      </p>
+    </div>
+    <div class="pricing-grid">
+      {
+        pricingTiers.map((tier) => (
+          <article class:list={['panel', 'reveal', 'price-card', { 'price-card--featured': 'featured' in tier && tier.featured }]}>
+            <h3>{tier.name}</h3>
+            <p class="price-card__price">
+              <strong>{tier.price}</strong>
+              <span>{tier.unit}</span>
+            </p>
+            <p class="price-card__best">{tier.best}</p>
+            <ul class="price-card__includes">
+              {tier.includes.map((item) => <li>{item}</li>)}
+            </ul>
+          </article>
+        ))
+      }
+    </div>
+    <div class="panel reveal pricing-note">
+      <h3>How these are priced</h3>
+      <p>
+        These are fixed fees rather than an hourly rate, because you are buying a finished thing
+        and not an afternoon. Work outside a project — ad-hoc changes for clients without a care
+        plan — is $125 per hour. Advisory work on grant-funded programs, where the useful thing is
+        two decades of federal reporting and compliance experience rather than the build, is $175
+        to $225 per hour.
+      </p>
+      <p>
+        Ranges exist because content volume and the number of people who need to approve things
+        move the number more than page count does. The proposal names one figure, and it is the
+        figure you pay.
+      </p>
+    </div>
+  </section>
 </BaseLayout>
+
+<style>
+  .pricing-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  }
+
+  .price-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .price-card--featured {
+    outline: 2px solid var(--honey);
+    outline-offset: -2px;
+  }
+
+  .price-card__price {
+    margin: 0.25rem 0 0;
+  }
+
+  .price-card__price strong {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 1.5rem;
+    display: block;
+    color: var(--honey);
+    line-height: 1.1;
+  }
+
+  .price-card__price span {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    opacity: 0.7;
+  }
+
+  .price-card__best {
+    font-size: 0.92rem;
+    opacity: 0.85;
+  }
+
+  .price-card__includes {
+    margin: 0.5rem 0 0;
+    padding-left: 1.05rem;
+    display: grid;
+    gap: 0.3rem;
+    font-size: 0.9rem;
+  }
+
+  .pricing-note {
+    margin-top: 1.25rem;
+  }
+
+  .pricing-note p {
+    max-width: 68ch;
+  }
+</style>
