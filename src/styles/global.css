@@ -217,6 +217,16 @@ body.home-loading {
    without a pointer. */
 .nav-item {
   position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* Sibling nav links are flex items and so are blockified, which makes their
+   vertical padding count toward their height. This one is nested a level
+   deeper, so left inline its padding bleeds out instead and the label rides
+   about 7px high. Blockify it to match. */
+.nav-item > a {
+  display: block;
 }
 
 .nav-sub {
