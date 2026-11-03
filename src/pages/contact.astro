@@ -88,20 +88,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             </label>
           </div>
 
-          <div class="form-row">
-            <label>
-              Is this a formal RFP or procurement?
-              <select name="procurement">
-                <option>No — we can just decide</option>
-                <option>Yes — there is an RFP document</option>
-                <option>Likely, but not issued yet</option>
-              </select>
-            </label>
-            <label>
-              Submission or decision deadline
-              <input type="text" name="deadline" placeholder="Example: proposals due Dec 12" />
-            </label>
-          </div>
+          <label>
+            Is this a formal RFP or procurement?
+            <select name="procurement">
+              <option>No — we can just decide</option>
+              <option>Yes — there is an RFP document</option>
+              <option>Likely, but not issued yet</option>
+            </select>
+          </label>
 
           <button class="button primary" type="submit">Submit Inquiry</button>
           <p class="form-note">This form is securely processed by FormSubmit and delivered to our inbox.</p>
