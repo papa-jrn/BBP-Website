@@ -238,6 +238,18 @@ export const pricingTiers = [
     ],
   },
   {
+    name: 'Content and campaigns',
+    price: '$4,500–$9,000',
+    unit: 'fixed',
+    best: 'Organizations whose site or tool already exists but does not say the right thing.',
+    includes: [
+      'Messaging work — what you actually offer, in words a stranger understands',
+      'Page-by-page copywriting, or a rewrite of what is there',
+      'Launch campaign: announcement, email sequence, and social copy',
+      'An editing pass on existing content, with what to cut',
+    ],
+  },
+  {
     name: 'Full site',
     price: '$9,000–$14,000',
     unit: 'fixed',
