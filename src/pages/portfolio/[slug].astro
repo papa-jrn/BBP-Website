@@ -133,6 +133,25 @@ const d = study.data;
     line-height: 1.7;
   }
 
+  .case-body :global(img) {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-top: 1.5rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: #fff;
+  }
+
+  /* The italic line following an image is its caption. */
+  .case-body :global(img + em),
+  .case-body :global(p > em:only-child) {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 0.86rem;
+    opacity: 0.75;
+  }
+
   .case-body :global(table) {
     width: 100%;
     border-collapse: collapse;

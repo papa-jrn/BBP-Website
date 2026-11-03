@@ -44,6 +44,9 @@ people they were built for.
 World 2 Systems was formed to take the programs to market — a technology transfer out of
 Dartmouth that kept four clinical training products in active national use for another decade.
 
+![The World 2 Systems portfolio site, which presented all four programs to a national clinical and emergency-response audience.](/images/legacy/World2SystemsSite.jpg)
+*The portfolio site. All four programs, one audience of professional buyers.*
+
 **Sexual Assault: Forensic and Clinical Management**, delivered with the International
 Association of Forensic Nurses and the federal Office on Violence Against Women.
 
@@ -54,8 +57,16 @@ military and federal trainers.
 the American Medical Association, accredited for 12 AMA PRA Category 1 Credits, with a virtual
 mini-fellowship led by Edward McCabe, MD, PhD.
 
+![The Genetics in Clinical Practice site, showing the patient visit roster, simulated clinicians and case lectures that made up the virtual mini-fellowship.](/images/legacy/Genetics.jpg)
+*A virtual clinic: a patient roster you work through, simulated consultations, and case lectures.*
+
 **Smoking Cessation for Pregnancy and Beyond: A Virtual Clinic**, built around simulated
 patients.
+
+![The Smoking Cessation for Pregnancy and Beyond site.](/images/legacy/SmokingCessationPreg.jpg)
+
+![The Virtual Terrorism Response Academy site.](/images/legacy/VTRA.jpg)
+*Smoking Cessation for Pregnancy and Beyond, and the Virtual Terrorism Response Academy.*
 
 ## The work
 
@@ -107,7 +118,8 @@ up from a brief.
 
 ---
 
-The programs and their sites went offline when World 2 Systems wound down in 2020. Archived
-copies remain: the
+The programs and their sites went offline when World 2 Systems wound down in 2020, and the
+Internet Archive preserved the text but not the artwork — the screenshots above come from our
+own records. Archived copies of the pages remain: the
 [portfolio site](https://web.archive.org/web/20190821085525/http://www.world2systems.com/) and
 [Genetics in Clinical Practice](https://web.archive.org/web/20160801054757/https://www.genetics-cme.com/).
