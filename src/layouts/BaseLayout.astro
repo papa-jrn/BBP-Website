@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import ChatIntake from '../components/ChatIntake.astro';
+import { getCollection } from 'astro:content';
 import { navLinks } from '../data/site';
 
 interface Props {
@@ -10,6 +11,12 @@ interface Props {
 
 const { title, description = 'Web development, design, branding, and creative production from Bee Balm Productions.' } = Astro.props;
 const currentPath = Astro.url.pathname;
+
+// Case studies hang off Portfolio in the nav so a visitor can reach one
+// directly instead of landing on the index and hunting for it.
+const caseStudies = (await getCollection('caseStudies', ({ data }) => !data.draft)).sort(
+  (a, b) => a.data.order - b.data.order
+);
 const isHome = currentPath === '/';
 const siteUrl = 'https://beebalmproductions.com';
 const canonicalUrl = new URL(currentPath, siteUrl).href;
@@ -78,11 +85,31 @@ const socialImage = `${siteUrl}/images/legacy/BBPLogoIcon.png`;
         </a>
         <button class="menu-toggle" type="button" aria-label="Open site menu" data-menu-toggle>Menu</button>
         <nav class="site-nav" data-site-nav>
-          {navLinks.map((link) => (
-            <a class={currentPath === link.href ? 'active' : ''} href={link.href}>
-              {link.label}
-            </a>
-          ))}
+          {navLinks.map((link) =>
+            link.href === '/portfolio' && caseStudies.length > 0 ? (
+              <div class="nav-item has-sub">
+                <a class={currentPath.startsWith('/portfolio') ? 'active' : ''} href={link.href}>
+                  {link.label}
+                </a>
+                <div class="nav-sub">
+                  {caseStudies.map((study) => (
+                    <a
+                      class={currentPath === `/portfolio/${study.id}` ? 'active' : ''}
+                      href={`/portfolio/${study.id}`}
+                    >
+                      <strong>{study.data.client}</strong>
+                      <span>{study.data.title}</span>
+                    </a>
+                  ))}
+                  <a class="nav-sub__all" href="/portfolio">All work &rarr;</a>
+                </div>
+              </div>
+            ) : (
+              <a class={currentPath === link.href ? 'active' : ''} href={link.href}>
+                {link.label}
+              </a>
+            )
+          )}
         </nav>
       </header>
 

@@ -18,6 +18,7 @@ const d = study.data;
 
 <BaseLayout title={`${d.client} | Bee Balm Productions`} description={d.summary}>
   <section class="container hero reveal">
+    <div class="hero-plain">
     <nav class="crumbs" aria-label="Breadcrumb">
       <a href="/portfolio">Portfolio</a>
       <span aria-hidden="true">/</span>
@@ -31,6 +32,7 @@ const d = study.data;
     <div class="hero-actions">
       {d.url && <a class="button primary" href={d.url} target="_blank" rel="noopener">Visit the live site</a>}
       <a class="button" href="/contact">Discuss a similar project</a>
+    </div>
     </div>
   </section>
 

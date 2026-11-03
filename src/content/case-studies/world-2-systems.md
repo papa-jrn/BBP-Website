@@ -4,7 +4,6 @@ client: "World 2 Systems / Interactive Media Laboratory, Dartmouth"
 sector: "Clinical education / technology transfer"
 summary: "When a Dartmouth research lab closed, four federally funded clinical training programs were commercialised rather than shelved — and sold to a national professional audience for another decade."
 year: "2004–2020"
-url: "https://web.archive.org/web/20190821085525/http://www.world2systems.com/"
 role:
   - "Product websites for all four programs"
   - "Sales and marketing site for the portfolio"
