@@ -8,6 +8,12 @@
     <p>Share a few details and we will follow up.</p>
 
     <form class="chat-form" data-chat-form>
+      <input type="hidden" name="source" value="Chat intake" />
+      <input type="hidden" name="started-at" data-started-at />
+      <div class="hp" aria-hidden="true">
+        <label for="chat-company-website">Leave this field empty</label>
+        <input id="chat-company-website" name="company-website" type="text" tabindex="-1" autocomplete="off" />
+      </div>
       <label>
         Name
         <input type="text" name="name" required />
@@ -28,11 +34,12 @@
       <label>
         Budget range
         <select name="budget">
-          <option>$2K-$5K</option>
-          <option>$5K-$10K</option>
-          <option>$10K-$25K</option>
-          <option>$25K-$50K</option>
-          <option>$50K+</option>
+          <option>Working it out — need a recommendation</option>
+          <option>Under $5,000</option>
+          <option>$5,000–$15,000</option>
+          <option>$15,000–$30,000</option>
+          <option>$30,000–$60,000</option>
+          <option>$60,000+</option>
         </select>
       </label>
       <label>
@@ -62,29 +69,43 @@
       }
     });
 
+    // Stamped on open rather than at submit, so the timing floor in
+    // /api/contact measures how long the form was actually in front of them.
+    const startedAt = form?.querySelector('[data-started-at]');
+    if (startedAt instanceof HTMLInputElement) startedAt.value = String(Date.now());
+
     form?.addEventListener('submit', async (event) => {
       event.preventDefault();
-      const formData = new FormData(form);
-      formData.append('_subject', 'Bee Balm Chat Intake');
+
+      if (status) status.textContent = 'Sending...';
 
       try {
-        const res = await fetch('https://formsubmit.co/ajax/info@beebalmproductions.com', {
+        const res = await fetch('/api/contact', {
           method: 'POST',
-          body: formData,
+          body: new FormData(form),
           headers: { Accept: 'application/json' },
         });
 
-        if (!res.ok) {
-          throw new Error('Submit failed');
+        const result = await res.json();
+
+        if (result.ok) {
+          form.reset();
+          if (startedAt instanceof HTMLInputElement) startedAt.value = String(Date.now());
+          if (status) {
+            status.textContent = 'Thanks. That reached us — we will follow up within one business day.';
+          }
+          return;
         }
 
-        form.reset();
-        if (status) {
-          status.textContent = 'Thanks. We received your intake and will follow up shortly.';
-        }
+        // Surface the real reason. The previous version reported every
+        // outcome as a generic failure, including a missing email address.
+        const messages = result.errors
+          ? Object.values(result.errors)
+          : [result.message ?? 'Something went wrong. Please try again.'];
+        if (status) status.textContent = String(messages[0]);
       } catch (error) {
         if (status) {
-          status.textContent = 'Submission failed. Please use the contact form for now.';
+          status.textContent = 'We could not reach the server. Please email info@beebalmproductions.com.';
         }
       }
     });

@@ -1,0 +1,43 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+/**
+ * Where /api/contact sends a visitor whose browser posted the form normally.
+ * The enhanced path never lands here — it swaps a message in place — but this
+ * has to be a real page in the site's own design, because the whole point of
+ * dropping FormSubmit was to stop throwing people onto someone else's domain
+ * at the moment they make contact.
+ */
+---
+
+<BaseLayout
+  title="Thank you | Bee Balm Productions"
+  description="Your project inquiry has been received by Bee Balm Productions."
+>
+  <section class="container hero reveal">
+    <div class="hero-plain">
+      <h1>Thank you — that reached us.</h1>
+      <p>
+        Your inquiry is in our inbox. We read every one personally, and you will hear back within
+        one business day.
+      </p>
+      <p>
+        If it is urgent, or you would rather just write to a person, email
+        <a href="mailto:info@beebalmproductions.com">info@beebalmproductions.com</a> directly.
+      </p>
+      <div class="cta-row">
+        <a class="button primary" href="/portfolio">See recent work</a>
+        <a class="button ghost" href="/">Back to the home page</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+  }
+</style>

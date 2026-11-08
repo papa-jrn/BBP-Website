@@ -1326,3 +1326,13 @@ html:not(.js) body.home-loading {
 .button.primary {
   color: #f7b8cc;
 }
+
+/* Honeypot. Used by the contact form and the chat intake; off-screen rather
+   than display:none, because some bots skip hidden fields but fill this one. */
+.hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}

@@ -1,5 +1,21 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+/**
+ * The form posts to /api/contact, a serverless route in this repo. It used to
+ * post to formsubmit.co, a free relay that accepted submissions, showed the
+ * visitor a success page on its own domain, and then quietly stopped
+ * delivering for three weeks. Nothing about that was visible from here.
+ *
+ * It works three ways now:
+ *   with JavaScript  posted in the background, the outcome swapped in place
+ *   without it       posted normally, redirecting to /thank-you
+ *   misconfigured    the route says so and points at the direct email, and
+ *                    writes the whole submission to the log so it survives
+ */
+
+/** Public by design and inlined at build time. Absent means no widget. */
+const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY ?? '';
 ---
 
 <BaseLayout title="Contact | Bee Balm Productions" description="Talk with Bee Balm Productions about your web design or web app project.">
@@ -28,11 +44,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
       <article class="contact-card reveal">
         <h3>Project inquiry form</h3>
-        <form class="contact-form" action="https://formsubmit.co/info@beebalmproductions.com" method="post">
-          <input type="hidden" name="_subject" value="Bee Balm Project Inquiry" />
-          <input type="hidden" name="_captcha" value="false" />
-          <input type="hidden" name="_template" value="table" />
-          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
+        <form class="contact-form" id="contact-form" action="/api/contact" method="post" data-contact-form>
+          <input type="hidden" name="source" value="Contact form" />
 
           <div class="form-row">
             <label>
@@ -103,8 +116,34 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             </label>
           </div>
 
-          <button class="button primary" type="submit">Submit Inquiry</button>
-          <p class="form-note">This form is securely processed by FormSubmit and delivered to our inbox.</p>
+          {/* Spam traps: a honeypot nobody can see, and when the form was opened. */}
+          <div class="hp" aria-hidden="true">
+            <label for="company-website">Leave this field empty</label>
+            <input id="company-website" name="company-website" type="text" tabindex="-1" autocomplete="off" />
+          </div>
+          <input type="hidden" name="started-at" data-started-at />
+
+          {
+            turnstileSiteKey && (
+              <div class="turnstile-field">
+                <div class="cf-turnstile" data-sitekey={turnstileSiteKey} data-action="contact" />
+                <noscript>
+                  <p class="form-note">
+                    This verification check needs JavaScript. With it switched off, please email
+                    <a href="mailto:info@beebalmproductions.com">info@beebalmproductions.com</a>.
+                  </p>
+                </noscript>
+              </div>
+            )
+          }
+
+          <div class="form-outcome" data-contact-outcome aria-live="polite"></div>
+
+          <button class="button primary" type="submit" data-contact-submit>Submit Inquiry</button>
+          <p class="form-note">
+            Goes straight to our own inbox — no third-party form service. Prefer to write it
+            yourself? Email <a href="mailto:info@beebalmproductions.com">info@beebalmproductions.com</a>.
+          </p>
         </form>
       </article>
     </div>
@@ -140,3 +179,104 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </div>
   </section>
 </BaseLayout>
+
+{
+  turnstileSiteKey && (
+    <script is:inline src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer />
+  )
+}
+
+<script>
+  const form = document.querySelector('[data-contact-form]');
+
+  if (form instanceof HTMLFormElement) {
+    const outcome = form.querySelector('[data-contact-outcome]');
+    const button = form.querySelector('[data-contact-submit]');
+    const startedAt = form.querySelector('[data-started-at]');
+
+    // Only meaningful with scripting on, which is the only case that can be
+    // submitted fast enough for the timing floor to mean anything.
+    if (startedAt instanceof HTMLInputElement) startedAt.value = String(Date.now());
+
+    const say = (html, kind) => {
+      if (!outcome) return;
+      outcome.className = `form-outcome form-outcome--${kind}`;
+      outcome.innerHTML = html;
+    };
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+
+      if (button instanceof HTMLButtonElement) {
+        button.disabled = true;
+        button.textContent = 'Sending...';
+      }
+      say('', 'quiet');
+
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { Accept: 'application/json' },
+        });
+
+        const result = await response.json();
+
+        if (result.ok) {
+          form.innerHTML =
+            '<h3>Thank you — that reached us.</h3>' +
+            '<p>Your inquiry is in our inbox. We read every one personally, and you will hear ' +
+            'back within one business day.</p>';
+          return;
+        }
+
+        const messages = result.errors
+          ? Object.values(result.errors)
+          : [result.message ?? 'Something went wrong. Please try again.'];
+
+        say('<ul>' + messages.map((m) => `<li>${m}</li>`).join('') + '</ul>', 'error');
+      } catch {
+        // The request never completed, so nothing was sent and nothing was
+        // logged. Give them an address rather than a spinner.
+        say(
+          '<p>We could not reach the server. Please email ' +
+            '<a href="mailto:info@beebalmproductions.com">info@beebalmproductions.com</a> ' +
+            'and we will pick it up from there.</p>',
+          'error'
+        );
+      } finally {
+        if (button instanceof HTMLButtonElement && document.contains(button)) {
+          button.disabled = false;
+          button.textContent = 'Submit Inquiry';
+        }
+        // A Turnstile token is good for one submission only.
+        if (window.turnstile && document.querySelector('.cf-turnstile')) window.turnstile.reset();
+      }
+    });
+  }
+</script>
+
+<style>
+  .turnstile-field {
+    min-height: 65px;
+    margin-bottom: 0.5rem;
+  }
+
+  .form-outcome:empty {
+    display: none;
+  }
+
+  .form-outcome--error {
+    border-left: 3px solid var(--accent, #8c1d33);
+    padding: 0.75rem 1rem;
+    margin-bottom: 1rem;
+    background: rgba(140, 29, 51, 0.06);
+    border-radius: 0 8px 8px 0;
+  }
+
+  .form-outcome ul {
+    margin: 0;
+    padding-left: 1.1rem;
+  }
+</style>
+
