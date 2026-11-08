@@ -101,20 +101,14 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY ?? '';
             </label>
           </div>
 
-          <div class="form-row">
-            <label>
-              Is this a formal RFP or procurement?
-              <select name="procurement">
-                <option>No — we can just decide</option>
-                <option>Yes — there is an RFP document</option>
-                <option>Likely, but not issued yet</option>
-              </select>
-            </label>
-            <label>
-              Submission or decision deadline
-              <input type="text" name="deadline" placeholder="Example: proposals due Dec 12" />
-            </label>
-          </div>
+          <label>
+            Is this a formal RFP or procurement?
+            <select name="procurement">
+              <option>No — we can just decide</option>
+              <option>Yes — there is an RFP document</option>
+              <option>Likely, but not issued yet</option>
+            </select>
+          </label>
 
           {/* Spam traps: a honeypot nobody can see, and when the form was opened. */}
           <div class="hp" aria-hidden="true">
