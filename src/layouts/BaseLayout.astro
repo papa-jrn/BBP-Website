@@ -183,23 +183,58 @@ const socialImage = `${siteUrl}/images/legacy/BBPLogoIcon.png`;
           track.style.transform = `translateX(-${index * 100}%)`;
         };
 
-        prev.addEventListener('click', () => {
-          index = (index - 1 + total) % total;
-          render();
-        });
+        // WCAG 2.2.2 (Level A): anything that moves on its own for more than
+        // five seconds has to be stoppable. Pausing while the pointer is over
+        // the carousel, or while focus is inside it, means the content cannot
+        // move out from under someone who is reading it or tabbing through it.
+        let timer: number | null = null;
 
-        next.addEventListener('click', () => {
-          index = (index + 1) % total;
-          render();
-        });
+        const stop = () => {
+          if (timer !== null) {
+            clearInterval(timer);
+            timer = null;
+          }
+        };
 
-        if (!prefersReduced) {
+        const start = () => {
           // Was 5500ms, which moved on before a testimonial could be read.
-          setInterval(() => {
+          if (prefersReduced || timer !== null) return;
+          timer = window.setInterval(() => {
             index = (index + 1) % total;
             render();
           }, 8250);
-        }
+        };
+
+        // Only resume once BOTH reasons to be paused have gone.
+        const resume = () => {
+          if (carousel.matches(':hover')) return;
+          if (document.activeElement && carousel.contains(document.activeElement)) return;
+          start();
+        };
+
+        // A manual move restarts the clock, so the slide someone just chose
+        // gets a full turn rather than whatever was left of the last one.
+        const go = (step: number) => {
+          index = (index + step + total) % total;
+          render();
+          stop();
+          resume();
+        };
+
+        prev.addEventListener('click', () => go(-1));
+        next.addEventListener('click', () => go(1));
+
+        carousel.addEventListener('mouseenter', stop);
+        carousel.addEventListener('mouseleave', resume);
+        carousel.addEventListener('focusin', stop);
+        carousel.addEventListener('focusout', (event) => {
+          // Moving between two controls inside the carousel is not leaving it.
+          const to = (event as FocusEvent).relatedTarget;
+          if (to instanceof Node && carousel.contains(to)) return;
+          resume();
+        });
+
+        start();
       });
 
       const loader = document.querySelector('[data-home-loader]');
