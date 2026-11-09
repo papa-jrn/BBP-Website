@@ -22,7 +22,7 @@ metrics:
     label: "requests to first render"
   - value: "19 ms"
     label: "time to first byte"
-order: 2
+order: 3
 ---
 
 ## The situation

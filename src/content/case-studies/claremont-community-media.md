@@ -24,7 +24,7 @@ editorNote: >-
   keep this one to the public website, streaming and the contributor pipeline so the two
   do not tell the same story twice. The School Board Meeting Navigator is Kevin Tyson's
   build, LLM-assisted; Bee Balm contributed polish and the publishing workflow.
-order: 3
+order: 4
 ---
 
 ## The situation

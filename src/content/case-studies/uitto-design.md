@@ -17,7 +17,7 @@ metrics:
     label: "of built work presented"
 editorNote: >-
   Needs Joshua's detail on which effects and layout behaviours required real code. Live site currently shows placeholder text ("Badget Text") and a page title of "Home 2" — not Bee Balm's to fix unpaid, so this stays a draft until resolved.
-order: 7
+order: 8
 draft: true
 ---
 
