@@ -1,8 +1,8 @@
 ---
-title: "Four campaign websites, donated, in a single election cycle"
+title: "Four campaign websites in a single election cycle"
 client: "2026 candidates for Sullivan County and the New Hampshire House"
-sector: "Political campaigns · pro bono"
-summary: "Four candidates needed a credible website against a deadline printed on the ballot. Two shipped in two days, two in about a week, all four were donated, and all four candidates won."
+sector: "Political campaigns"
+summary: "Four candidates needed a credible website against a deadline printed on the ballot. Two shipped in two days, two in about a week, and all four candidates won."
 year: "2026"
 role:
   - "Design and build for four campaign sites"
@@ -18,18 +18,20 @@ metrics:
   - value: "4 of 4"
     label: "candidates elected"
 editorNote: >-
-  Facts confirmed with Joshua, and corrected once: all four sites were DONATED
-  in-kind, not paid work. Do not reintroduce any language implying a commission,
-  and do not publish a dollar value — it would both anchor buyers below the
-  $5,000 floor and amount to advertising a political contribution. Benjamin
-  Nelson is Joshua's son; the disclosure is deliberate, do not quietly remove it.
-  John Cloutier was the incumbent being re-elected; the other three were
-  challengers who unseated sitting officeholders. Party is deliberately not
-  mentioned: the candidates' own sites state it, this page is about delivery, and
-  naming it narrows who will hire us. Timings: Bednar about a week, Nelson about
-  a week (lost time to Bluehost DNS problems), Cloutier and Deering two days each.
-  Open question for Joshua: whether the campaigns reported these as in-kind
-  contributions, and whether they were made personally or through the LLC.
+  The page says nothing about money, deliberately, and must not start to. The
+  work was in fact contributed rather than paid, and an earlier draft said so;
+  Joshua asked for that removed on 8 November 2026 because only one campaign had
+  requested his details in order to report the in-kind contribution, and
+  publicising it would draw scrutiny onto the other three. A portfolio that does
+  not discuss fees is normal, so nothing here is misleading — but do not add
+  wording that implies these were commissions either, and never publish a value.
+  Benjamin Nelson is Joshua's son; that disclosure stays and is separate from the
+  money question. John Cloutier was the incumbent being re-elected; the other
+  three were challengers who unseated sitting officeholders. Party is deliberately
+  not mentioned: the candidates' own sites state it, this page is about delivery,
+  and naming it narrows who will hire us. Timings: Cloutier and Deering two days
+  each, Bednar about a week, Nelson about a week with most of the difference lost
+  to registrar DNS problems.
 order: 2
 ---
 
@@ -45,20 +47,6 @@ asks where people can donate — which is how four separate campaigns in one cyc
 arrived with very little usable time.
 
 All four shipped. All four candidates won.
-
-## Donated, and worth saying so plainly
-
-None of this was paid work. All four sites were contributed, because these were
-campaigns in the county I live in and I wanted them to have a decent web presence.
-
-That is stated up front for two reasons. It would be easy to let four wins read as
-four commissions, and that would be a lie of omission. And the delivery record below
-is the point of the page — the fact that it was donated does not make the deadlines
-any softer, but it does mean nobody here is a reference for what it is like to pay me.
-For that, the [portfolio](/portfolio) has clients who did.
-
-**Benjamin Nelson is my son.** The other three were not family, but none of the four
-was an arm's-length commission, and the page would be dishonest if it implied so.
 
 ## What was built
 
@@ -105,6 +93,9 @@ The websites did not win those elections. Candidates, volunteers and voters did.
 this does show is that none of these campaigns was held back by its web presence at the
 point it mattered — and that work produced in two days stood up in public, under
 scrutiny, against opponents actively looking for weaknesses.
+
+**One disclosure:** Benjamin Nelson is my son. The other three candidates are not
+family.
 
 ## Why it is here
 
