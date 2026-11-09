@@ -194,10 +194,11 @@ const socialImage = `${siteUrl}/images/legacy/BBPLogoIcon.png`;
         });
 
         if (!prefersReduced) {
+          // Was 5500ms, which moved on before a testimonial could be read.
           setInterval(() => {
             index = (index + 1) % total;
             render();
-          }, 5500);
+          }, 8250);
         }
       });
 
