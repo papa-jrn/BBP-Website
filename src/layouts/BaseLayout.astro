@@ -168,7 +168,7 @@ const socialImage = `${siteUrl}/images/legacy/BBPLogoIcon.png`;
       document.querySelectorAll(animated).forEach((item) => observer.observe(item));
 
       document.querySelectorAll('[data-carousel]').forEach((carousel) => {
-        const track = carousel.querySelector('[data-carousel-track]');
+        const track = carousel.querySelector('[data-carousel-track]') as HTMLElement | null;
         const slides = carousel.querySelectorAll('[data-carousel-slide]');
         const prev = carousel.querySelector('[data-carousel-prev]');
         const next = carousel.querySelector('[data-carousel-next]');

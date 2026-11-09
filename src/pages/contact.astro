@@ -192,7 +192,7 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY ?? '';
     // submitted fast enough for the timing floor to mean anything.
     if (startedAt instanceof HTMLInputElement) startedAt.value = String(Date.now());
 
-    const say = (html, kind) => {
+    const say = (html: string, kind: string) => {
       if (!outcome) return;
       outcome.className = `form-outcome form-outcome--${kind}`;
       outcome.innerHTML = html;

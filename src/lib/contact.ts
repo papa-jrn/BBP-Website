@@ -26,7 +26,6 @@ export type ContactSubmission = {
   budget: string;
   timeline: string;
   procurement: string;
-  deadline: string;
   source: string;
 };
 
@@ -68,7 +67,6 @@ export function validateSubmission(form: FormData): ValidationResult {
   const budget = short('budget');
   const timeline = short('timeline');
   const procurement = short('procurement');
-  const deadline = short('deadline');
   const source = short('source') || 'Contact form';
 
   if (!name) errors.name = 'Please tell us your name.';
@@ -98,7 +96,6 @@ export function validateSubmission(form: FormData): ValidationResult {
       budget,
       timeline,
       procurement,
-      deadline,
       source,
     },
   };
@@ -145,7 +142,6 @@ export function renderEmail(data: ContactSubmission) {
     ['Budget', data.budget || '—'],
     ['Timeline', data.timeline || '—'],
     ['Procurement', data.procurement || '—'],
-    ['Deadline', data.deadline || '—'],
     ['Came from', data.source],
   ];
 

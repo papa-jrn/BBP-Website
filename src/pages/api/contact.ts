@@ -228,7 +228,7 @@ function logFailure(data: ContactSubmission, sent: { reason: string; detail?: st
       `  from: ${data.name} <${data.email}>\n` +
       `  org: ${data.organization || '—'} | looking for: ${data.offer || '—'}\n` +
       `  budget: ${data.budget || '—'} | timeline: ${data.timeline || '—'}\n` +
-      `  procurement: ${data.procurement || '—'} | deadline: ${data.deadline || '—'}\n` +
+      `  procurement: ${data.procurement || '—'}\n` +
       `  came from: ${data.source}\n` +
       `  goals: ${data.projectGoals}`
   );

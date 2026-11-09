@@ -58,7 +58,7 @@
   if (intakeRoot) {
     const toggle = intakeRoot.querySelector('[data-chat-toggle]');
     const panel = intakeRoot.querySelector('[data-chat-panel]');
-    const form = intakeRoot.querySelector('[data-chat-form]');
+    const form = intakeRoot.querySelector('[data-chat-form]') as HTMLFormElement | null;
     const status = intakeRoot.querySelector('[data-chat-status]');
 
     toggle?.addEventListener('click', () => {
