@@ -217,6 +217,11 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY ?? '';
         const result = await response.json();
 
         if (result.ok) {
+          // The card's heading sits outside the form, so swapping the form
+          // alone leaves "Project inquiry form" sitting above a thank-you
+          // message, announcing a form that is no longer on the page.
+          form.closest('.contact-card')?.querySelector('h3')?.remove();
+
           form.innerHTML =
             '<h3>Thank you — that reached us.</h3>' +
             '<p>Your inquiry is in our inbox. We read every one personally, and you will hear ' +
