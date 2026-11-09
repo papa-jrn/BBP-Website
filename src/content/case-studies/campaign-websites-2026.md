@@ -31,7 +31,11 @@ editorNote: >-
   not mentioned: the candidates' own sites state it, this page is about delivery,
   and naming it narrows who will hire us. Timings: Cloutier and Deering two days
   each, Bednar about a week, Nelson about a week with most of the difference lost
-  to registrar DNS problems.
+  to registrar DNS problems. The Deering quote is lightly tidied from what he gave
+  Joshua — a spoken stumble repunctuated, no words added and no meaning changed; the
+  verbatim original is in the 8 November 2026 conversation if it is ever questioned.
+  He is attributed as a potter and candidate rather than by the office he now holds,
+  so a sitting legislator is not being used to endorse a business.
 order: 2
 ---
 
@@ -82,6 +86,19 @@ this hard, the risk is rarely the code. It is a domain that will not propagate, 
 donation platform that needs a verification step nobody mentioned, or a photo that
 arrives at the wrong size the night before. Most of the skill is in leaving room for
 those.
+
+## What the candidate said
+
+Sam Deering, whose site went live in two days:
+
+> "I'm an artist by trade — I make pottery. I thought, how hard can it be to build a
+> website? It turns out, very hard. I found I just couldn't make something that looked
+> good, and I didn't have the time. Joshua Nelson produced something in 48 hours that
+> not only looked good but was perfect for our needs."
+
+That is the actual shape of the problem, and it is not only a campaign problem. Capable
+people assume a website is a small thing until they try to make one, and then lose a
+fortnight to it — a fortnight they needed for the work they are actually good at.
 
 ## What it does and does not prove
 

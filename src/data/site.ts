@@ -155,6 +155,24 @@ export const externalSites = [
     note: 'State Representative campaign website',
     image: '/images/live/cloutier4nh.jpg',
   },
+  {
+    title: 'Deering for NH',
+    url: 'https://www.samdeeringfornh.com/',
+    note: 'State Representative campaign website, built in two days',
+    image: '/images/live/samdeeringfornh.jpg',
+  },
+  {
+    title: 'Bednar for NH',
+    url: 'https://www.bednar4nh.com/',
+    note: 'County Commissioner campaign website',
+    image: '/images/live/bednar4nh.jpg',
+  },
+  {
+    title: 'Nelson for NH',
+    url: 'https://nelson4nh.com/',
+    note: 'County Commissioner campaign website, built in WordPress and Divi',
+    image: '/images/live/nelson4nh.jpg',
+  },
 ];
 
 export const photoGallery = [
