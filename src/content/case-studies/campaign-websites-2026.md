@@ -1,8 +1,8 @@
 ---
-title: "Four campaign websites, one week each, in a single election cycle"
+title: "Four campaign websites, donated, in a single election cycle"
 client: "2026 candidates for Sullivan County and the New Hampshire House"
-sector: "Political campaigns"
-summary: "Four candidates needed a credible website inside a week, against a deadline that could not move. All four sites shipped on time, and all four candidates won."
+sector: "Political campaigns · pro bono"
+summary: "Four candidates needed a credible website against a deadline printed on the ballot. Two shipped in two days, two in about a week, all four were donated, and all four candidates won."
 year: "2026"
 role:
   - "Design and build for four campaign sites"
@@ -13,19 +13,23 @@ role:
 metrics:
   - value: "4"
     label: "sites in one cycle"
-  - value: "~1 week"
-    label: "concept to launch, each"
+  - value: "2–7 days"
+    label: "concept to launch"
   - value: "4 of 4"
     label: "candidates elected"
 editorNote: >-
-  Facts confirmed with Joshua. Benjamin Nelson is Joshua's son — disclosed in the
-  body on purpose; do not quietly remove it. John Cloutier was the incumbent being
-  re-elected; the other three were challengers who unseated sitting officeholders.
-  Party is deliberately not mentioned: the candidates' own sites state it, but this
-  page is about delivery, and naming it narrows who will hire us. Joshua normally
-  charged about $1,000 per site. That figure is deliberately NOT published here —
-  it sits below the $5,000 floor on the pricing page and would undercut it. Decide
-  a campaign package rate before adding any price to this page.
+  Facts confirmed with Joshua, and corrected once: all four sites were DONATED
+  in-kind, not paid work. Do not reintroduce any language implying a commission,
+  and do not publish a dollar value — it would both anchor buyers below the
+  $5,000 floor and amount to advertising a political contribution. Benjamin
+  Nelson is Joshua's son; the disclosure is deliberate, do not quietly remove it.
+  John Cloutier was the incumbent being re-elected; the other three were
+  challengers who unseated sitting officeholders. Party is deliberately not
+  mentioned: the candidates' own sites state it, this page is about delivery, and
+  naming it narrows who will hire us. Timings: Bednar about a week, Nelson about
+  a week (lost time to Bluehost DNS problems), Cloutier and Deering two days each.
+  Open question for Joshua: whether the campaigns reported these as in-kind
+  contributions, and whether they were made personally or through the LLC.
 order: 2
 ---
 
@@ -35,18 +39,32 @@ Almost every website deadline is soft. A nonprofit's relaunch slips a fortnight 
 nothing happens. A hospital's microsite misses a quarter and the world turns.
 
 A campaign has one real date on it, and it is printed on the ballot. A site that is
-beautiful on the Wednesday after the election is worth nothing at all. Candidates
-also tend to decide they need a website late, once door-knocking has started and
-somebody asks where people can donate — which is how four separate campaigns in one
-cycle each arrived with roughly a week of usable time.
+beautiful on the Wednesday after the election is worth nothing at all. Candidates also
+tend to decide they need a website late, once door-knocking has started and somebody
+asks where people can donate — which is how four separate campaigns in one cycle each
+arrived with very little usable time.
 
 All four shipped. All four candidates won.
 
+## Donated, and worth saying so plainly
+
+None of this was paid work. All four sites were contributed, because these were
+campaigns in the county I live in and I wanted them to have a decent web presence.
+
+That is stated up front for two reasons. It would be easy to let four wins read as
+four commissions, and that would be a lie of omission. And the delivery record below
+is the point of the page — the fact that it was donated does not make the deadlines
+any softer, but it does mean nobody here is a reference for what it is like to pay me.
+For that, the [portfolio](/portfolio) has clients who did.
+
+**Benjamin Nelson is my son.** The other three were not family, but none of the four
+was an arm's-length commission, and the page would be dishonest if it implied so.
+
 ## What was built
 
-Four one-page sites, each carrying the same working parts: the candidate's case,
-their priorities, a donation route, a way to volunteer, and a contact form that
-actually delivers.
+Four one-page sites, each carrying the same working parts: the candidate's case, their
+priorities, a donation route, a way to volunteer, and a contact form that actually
+delivers.
 
 ![The Benjamin Nelson for Sullivan County Commissioner site.](/images/campaigns/nelson.jpg)
 *Benjamin Nelson — Sullivan County Commissioner, District 1. Built in WordPress and Divi.*
@@ -62,24 +80,20 @@ actually delivers.
 
 Three were built on the Astro stack we use for most work. Benjamin Nelson's was built
 in WordPress and Divi, because that was what suited the campaign. Picking the stack to
-fit the client rather than the studio is the whole point: a week is not long enough to
-also run a migration argument.
+fit the client rather than the studio is the whole point: there is never enough time in
+a campaign to also run a migration argument.
 
-## Why a week is the interesting part
+## The timings
 
-The work is not technically hard. A one-page campaign site is a small build. What is
-hard is that everything else has to compress to fit around it — and that is where most
-studios quietly fail a campaign.
+The Cloutier and Deering sites each went from nothing to live in **two days**. Bednar
+took about a week. Nelson also took about a week, most of the difference being time
+lost to DNS problems at the registrar rather than to the build.
 
-The copy has to be drafted from a conversation rather than a brief, because nobody has
-time to write one. Photography has to be shot, chosen or rescued from a phone and made
-to look deliberate. The donation platform has to be wired and tested with a real
-transaction, because a broken donate button on a campaign site is worse than no site.
-Domains have to be bought and pointed the same day. And it has to be right first time,
-because there is no second pass.
-
-Doing that four times in one cycle, without the quality visibly dropping on the fourth,
-is the claim this page is making.
+That last one is worth keeping in the record rather than rounding away. On a deadline
+this hard, the risk is rarely the code. It is a domain that will not propagate, a
+donation platform that needs a verification step nobody mentioned, or a photo that
+arrives at the wrong size the night before. Most of the skill is in leaving room for
+those.
 
 ## What it does and does not prove
 
@@ -88,15 +102,9 @@ Representatives. One was an incumbent being re-elected; the other three were
 challengers who unseated sitting officeholders.
 
 The websites did not win those elections. Candidates, volunteers and voters did. What
-four wins out of four does show is that none of these campaigns was held back by its
-web presence at the point it mattered, and that four separate candidates — including
-three running uphill against incumbents — were willing to put their public face in the
-same pair of hands inside the same few weeks.
-
-**One disclosure, because it matters more to state it than to have it noticed:**
-Benjamin Nelson is my son. The work was real and the deadline was real, but it was not
-an arm's-length commission, and this page would be dishonest if it implied otherwise.
-The other three were.
+this does show is that none of these campaigns was held back by its web presence at the
+point it mattered — and that work produced in two days stood up in public, under
+scrutiny, against opponents actively looking for weaknesses.
 
 ## Why it is here
 
@@ -105,4 +113,4 @@ programs — screen for one thing above almost everything else: will this person
 on the date they promised? Most portfolios answer that with adjectives.
 
 This one answers it with four fixed, externally verified deadlines in a single autumn,
-none of them missed.
+none of them missed, two of them met in forty-eight hours.
